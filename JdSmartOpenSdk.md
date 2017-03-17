@@ -42,16 +42,14 @@ JdSmart是声控智能家居系统，可用于控制智能家居主机及设备�
 重点说明
 --------
 
-1.通过IJdSmartHost.java接口，JdSmartHostInfo getHostInfo() 可配置主机的能力　
+1. 通过IJdSmartHost.java接口，JdSmartHostInfo getHostInfo() 可配置主机的能力　
 是否支持登陆，登陆提示信息，是否支持全部场景功能
 
-2.实现IJdSmartHost.java不同的接口函数，需要将JdSmartScene，JdSmartCtrlCmd，JdSmartDevice这些类转化为你的智能家居对应的类类型　
-例如，　
+2. 实现IJdSmartHost.java不同的接口函数，需要将JdSmartScene，JdSmartCtrlCmd，JdSmartDevice这些类转化为你的智能家居对应的类类型。例如，　
 getAllDevices(JdbaseCallback callback)接口中需要将智能家居设备转化为JdSmartDevices　
 controlDevice(JdSmartCtrlCmd cmd, JdbaseCallback callback) 接口中需要将JdSmartCtrlCmd转化为智能家居设备的执行指令　
-3. 为简化第三方JdSmartOpen App后续升级及设备管理，第三方App需要通过getAppId接口设置appId，为简化appid管理，我司不分配具体appid，为保证全球唯一，建议设置为贵司的域名。
-例如：美的集团设置appid值为 midea.com
-<font color= "red" >注意每个设备仅能绑定一次，并存入我司后台服务器。</font> 　
+
+3. 为简化第三方JdSmartOpen App后续升级及设备管理，第三方App需要通过getAppId接口设置appId，为简化appid管理，我司不分配具体appid，为保证全球唯一，建议设置为贵司的域名。例如：美的集团设置appid值为 midea.com<font color= "red" >注意每个设备仅能绑定一次，并存入我司后台服务器。</font> 　
 
 主要类介绍
 ----------
