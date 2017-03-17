@@ -110,7 +110,7 @@ groupData 是jason字符串，如果设备的命令较复杂，用groupData一�
 例如： 更新灯的当前状态为打开：
 
 ``` java
-JdSmartCtrlCmd.set |value1("0")
+JdSmartCtrlCmd.setValue1("0")
 ```
 
 更新空调的状态为制冷模式，风速高，左右扫风前,温度28：
@@ -764,7 +764,7 @@ JdSmartCtrlCmd　表示一个设备的指令操作，就是将这些设备的指
 
 ### 普通灯，开关，插座
 
-命令|
+命令
 
 ``` java
 cmd.setOrder(JdSmartDeviceOrder.ON),  |value1不用设置
@@ -773,12 +773,12 @@ cmd.setOrder(JdSmartDeviceOrder.ON),  |value1不用设置
 状态：
 
 ``` java
-cmd. |value1("0") //表示状态是开
+cmd.value1("0") //表示状态是开
 ```
 
 ### 调光灯
 
-命令|
+命令
 
 ``` java
 cmd.setOrder(JdSmartDeviceOrder.ON) //ON开,OFF关
@@ -786,19 +786,19 @@ cmd.setOrder(JdSmartDeviceOrder.ON) //ON开,OFF关
 
 ``` java
 cmd.setOrder(JdSmartDeviceOrder.MOVE_TO_LEVEL) //亮度比例
-cmd.set |value2("30") //最高亮度255
+cmd.setValue2("30") //最高亮度255
 ```
 
-状态：
+状态
 
 ``` java
-cmd. |value1("0")  // |value1表示开关状态 "0"表示状态打开,否则为关闭状态
-cmd. |value2("30") // |value2表示亮度,最高亮度255
+cmd.value1("0")  // value1表示开关状态 "0"表示状态打开,否则为关闭状态
+cmd.value2("30") // value2表示亮度,最高亮度255
 ```
 
 ### 窗帘/开窗器/温控器
 
-命令|
+命令
 
 ``` java
 cmd.setOrder(JdSmartDeviceOrder.OPEN) //OPEN开,CLOSE关, STOP暂停移动
@@ -806,18 +806,18 @@ cmd.setOrder(JdSmartDeviceOrder.OPEN) //OPEN开,CLOSE关, STOP暂停移动
 
 ``` java
 cmd.setOrder(JdSmartDeviceOrder.MOVE_TO_LEVEL) //移动比例
-cmd.set |value1("30") //百分比为30%
+cmd.setValue1("30") //百分比为30%
 ```
 
-状态：
+状态
 
 ``` java
-cmd. |value1("10") //表示状态是10%,如果是100，则设备是全开状态
+cmd.value1("10") //表示状态是10%,如果是100，则设备是全开状态
 ```
 
 ### 空调
 
-命令|
+命令
 
 -   打开空调
 
@@ -829,33 +829,33 @@ cmd.setOrder(JdSmartDeviceOrder.OPEN)
 
 ``` java
 cmd.setOrder(JdSmartDeviceOrder.NEXT)
-cmd.set |value1(JdSmartDeviceOrder.AIRCONDITION_MODE_TYPE)
+cmd.setValue1(JdSmartDeviceOrder.AIRCONDITION_MODE_TYPE)
 ```
 
 -   设置制冷模式
 
 ``` java
 cmd.setOrder(JdSmartDeviceOrder.SET)
-cmd.set |value1(JdSmartDeviceOrder.AIRCONDITION_MODE_TYPE)
-cmd.set |value2(JdSmartDeviceOrder.AIRCONDITION_MODE_COOL)
+cmd.setValue1(JdSmartDeviceOrder.AIRCONDITION_MODE_TYPE)
+cmd.setVvalue2(JdSmartDeviceOrder.AIRCONDITION_MODE_COOL)
 ```
 
 -   设置中风
 
 ``` java
 cmd.setOrder(JdSmartDeviceOrder.SET)
-cmd.set |value1(JdSmartDeviceOrder.AIRCONDITION_WIND_RATE_TYPE)
-cmd.set |value2(JdSmartDeviceOrder.AIRCONDITION_WIND_RATE_MIDDLE)
+cmd.setValue1(JdSmartDeviceOrder.AIRCONDITION_WIND_RATE_TYPE)
+cmd.setValue2(JdSmartDeviceOrder.AIRCONDITION_WIND_RATE_MIDDLE)
 ```
 
 -   设置温度26度
 
 ``` java
 cmd.setOrder(JdSmartDeviceOrder.MOVE_TO_LEVEL)
-cmd.set |value1("26")
+cmd.setValue1("26")
 ```
 
-状态：
+状态
 
 ``` java
 JSONObject jobj = new JSONObject();
@@ -868,7 +868,7 @@ cmd.setGroupData(jobj.toJSONString());
 
 ### Sensor传感器
 
-命令|
+命令
 
 -   关闭正在发声的警报
 
@@ -876,7 +876,7 @@ cmd.setGroupData(jobj.toJSONString());
 cmd.setOrder(JdSmartDeviceOrder.MUTE)
 ```
 
-状态：
+状态
 
  
  类别       | 参数   | 描述                                               
