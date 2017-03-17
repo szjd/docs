@@ -26,7 +26,7 @@ JdSmart是声控智能家居系统，可用于控制智能家居主机及设备�
 --------
 
 1.通过IJdSmartHost.java接口，JdSmartHostInfo getHostInfo() 可配置主机的能力　
-是否支持登陆，登陆提示信息，是否支持全部场景功能（详情见[ getHostInfo接口函数](JdSmart_Open_Sdk#JdSmartHostInfo_getHostInfo.28.29 "wikilink")）
+是否支持登陆，登陆提示信息，是否支持全部场景功能
 
 2.实现IJdSmartHost.java不同的接口函数，需要将JdSmartScene，JdSmartCtrlCmd，JdSmartDevice这些类转化为你的智能家居对应的类类型　
 例如，　
