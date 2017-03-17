@@ -72,7 +72,7 @@ getJdSmartCtrlCmd() //会返回一个JdSmartCtrlCmd变量，表示设备当前�
 ### JdSmartCtrlCmd类
 
 通过deviceId与具体JdSmartDevice设备关联，JdSmartDevice类中同时包含JdSmartCtrlCmd类
-此类包含order,value1,value2,value3,value4,groupData等变量
+此类包含order, |value1, |value2, |value3, |value4,groupData等变量
 有两个含义，
 
 1.  智能设备的命令,一般指接收到设备控制命令或场景执行命令时
@@ -87,30 +87,30 @@ void changeDeviceStatus(JdSmartCtrlCmd cmd)
 
 1.如果接收到设备控制命令或场景执行命令时，表示如下
 order表示命令，详情见JdSmartDeviceOrder类
-value1，value2，value3，value4 表示此命令所带的参数
+ |value1， |value2， |value3， |value4 表示此命令所带的参数
 groupData 是jason字符串，如果设备的命令较复杂，用groupData一次传递传多个参数值
 例如：
 收到开灯命令：
 
 ``` java
 JdSmartCtrlCmd.getOrder()将等于JdSmartDeviceOrder.ON 
-JdSmartCtrlCmd.getValue1()，因为开灯命令简单不用带参数,不必关注 
+JdSmartCtrlCmd.get |value1()，因为开灯命令简单不用带参数,不必关注 
 ```
 
 收到设置空调到下一个模式命令：
 
 ``` java
 JdSmartCtrlCmd.getOrder()将等于JdSmartDeviceOrder.NEXT
-JdSmartCtrlCmd.getValue1()将等于AIRCONDITION_MODE_TYPE  
+JdSmartCtrlCmd.get |value1()将等于AIRCONDITION_MODE_TYPE  
 ```
 
 2.更新设备最新状态给UI，可以不必处理JdSmartCtrlCmd.order成员变量，表示如下：
-value1-value4 表示此设备的当前状态是什么
+ |value1- |value4 表示此设备的当前状态是什么
 groupData 是jason字符串，如果设备的命令较复杂，用groupData一次传递传多个值
 例如： 更新灯的当前状态为打开：
 
 ``` java
-JdSmartCtrlCmd.setValue1("0")
+JdSmartCtrlCmd.set |value1("0")
 ```
 
 更新空调的状态为制冷模式，风速高，左右扫风前,温度28：
@@ -127,8 +127,8 @@ airConditionCmd.setGroupData(jobj.toJSONString());
 ### JdSmartDeviceType类
 
 包括开关，普通灯，调光灯，窗帘，插座，空调，电视，空气净化器，开窗器，温控器，多功能控制盒，各种传感器
-====**注意：**==== DEVICE\_TYPE\_CURTAINS: 表示可以精确获取移动位置的窗帘
-DEVICE\_TYPE\_CURTAINS\_NO\_POSITION: 表示不能精确获取移动位置的窗帘
+====**注意：**==== DEVICE\_TYPE\_CURTAINS| 表示可以精确获取移动位置的窗帘
+DEVICE\_TYPE\_CURTAINS\_NO\_POSITION| 表示不能精确获取移动位置的窗帘
 
 ### JdSmartDeviceOrder类
 
@@ -161,15 +161,15 @@ CustomSmartService.java是与其他Jd软件服务通信的服务类, 不需要�
 首先在AndroidManifest.xml 中配置启动CustomSmartService.java服务的action名
 
 ``` java
-<action android:name="com.judian.service.CustomSmartService" />　//请不要更改这个，因为SDK端依赖这个
+<action android|name="com.judian.service.CustomSmartService" />　//请不要更改这个，因为SDK端依赖这个
 ```
 
 ``` java
  <service
-     android:name=".service.CustomSmartService"
-     android:exported="true">
+     android|name=".service.CustomSmartService"
+     android|exported="true">
      <intent-filter>
-        <action android:name="com.judian.service.CustomSmartService" />
+        <action android|name="com.judian.service.CustomSmartService" />
      </intent-filter>
  </service>
 ```
@@ -328,7 +328,7 @@ mJdSmartHostInfo.setEnableSceneEdit(true);//默认为true
     /**
      * 用户认证登陆
      * <pre>
-     * 例如:
+     * 例如|
      *    成功 callback.onResult(JdbaseContant.RESULT_SUCCESS, "success", "");
      *    失败 callback.onResult(JdbaseContant.RESULT_FAIL, "fail", "");
      *</pre>
@@ -363,7 +363,7 @@ mJdSmartHostInfo.setEnableSceneEdit(true);//默认为true
     /**
      * 退出登陆
      *<pre>
-     *例如:
+     *例如|
      *    成功 callback.onResult(JdbaseContant.RESULT_SUCCESS, "success", "");
      *    失败 callback.onResult(JdbaseContant.RESULT_FAIL, "fail", "");
      *</pre>
@@ -382,7 +382,7 @@ mJdSmartHostInfo.setEnableSceneEdit(true);//默认为true
     /**
      * 搜索，并绑定主机网关
      * <pre>
-     *例如:
+     *例如|
      *    callback.onResult(JdbaseContant.RESULT_SUCCESS, "网关信息", "");
      * </pre>
      * @param isSearch 是否动态搜索
@@ -399,7 +399,7 @@ mJdSmartHostInfo.setEnableSceneEdit(true);//默认为true
     /**
      * 从主机网关解除所有设备与场景，危险操作
      * <pre>
-     * 例如:
+     * 例如|
      *     callback.onResult(JdbaseContant.RESULT_SUCCESS, "success", "");
      * </pre>
      * @param callback 回调结果
@@ -415,9 +415,9 @@ mJdSmartHostInfo.setEnableSceneEdit(true);//默认为true
     /**
      * 获取所有场景
      * <pre>
-     * 例如:
+     * 例如|
      * JdSmartScenes jss = new JdSmartScenes();
-     * for(Scenexxxx s: list){
+     * for(Scenexxxx s| list){
      *      JdSmartScene js = new JdSmartScene();
      *      js.setSceneNo(s.getNo());
      *      js.setSceneId(s.getId()+"");
@@ -442,7 +442,7 @@ mJdSmartHostInfo.setEnableSceneEdit(true);//默认为true
     /**
      * 创建场景
      * <pre>
-     * 例如:
+     * 例如|
      *     JdSmartScene js = new JdSmartScene();
      *     js.setSceneName("xxx"); //与传入的场景名一致
      *     js.setSceneNO(xxxxId() + "");
@@ -462,7 +462,7 @@ mJdSmartHostInfo.setEnableSceneEdit(true);//默认为true
     /**
      * 删除场景
      * <pre>
-     * 例如:
+     * 例如|
      *     callback.onResult(JdbaseContant.RESULT_SUCCESS, "success", "");
      *     callback.onResult(JdbaseContant.RESULT_FAIL, "fail", "");
      * </pre>
@@ -480,7 +480,7 @@ mJdSmartHostInfo.setEnableSceneEdit(true);//默认为true
     /**
      * 修改场景
      * <pre>
-     * 例如:
+     * 例如|
      *    callback.onResult(JdbaseContant.RESULT_SUCCESS, "success", "");
      *    callback.onResult(JdbaseContant.RESULT_FAIL, "fail", "");
      * </pre>
@@ -499,7 +499,7 @@ JdSmartCtrlCmd　表示一个设备的指令操作，就是将这些设备的指
     /**
      * 创建场景绑定
      * <pre>
-     * 例如:
+     * 例如|
      *     callback.onResult(JdbaseContant.RESULT_SUCCESS, "success", "");
      *     callback.onResult(JdbaseContant.RESULT_FAIL, "fail", "");
      * </pre>
@@ -517,7 +517,7 @@ JdSmartCtrlCmd　表示一个设备的指令操作，就是将这些设备的指
     /**
      * 删除场景绑定
      * <pre>
-     * 例如:
+     * 例如|
      *    callback.onResult(JdbaseContant.RESULT_SUCCESS, "success", "");
      *    callback.onResult(JdbaseContant.RESULT_FAIL, "fail", "");
      * </pre>
@@ -553,7 +553,7 @@ JdSmartCtrlCmd　表示一个设备的指令操作，就是将这些设备的指
     /**
      * 获取场景绑定
      * <pre>
-     * 例如:
+     * 例如|
      *     JdSmartDevices jds = new JdSmartDevices();
      *     JdSmartDevice device1 = new JdSmartDevice();
      *     JdSmartDevice device2 = new JdSmartDevice();
@@ -576,7 +576,7 @@ JdSmartCtrlCmd　表示一个设备的指令操作，就是将这些设备的指
     /**
      * 获取所有设备列表
      * <pre>
-     * 例如:
+     * 例如|
      *    JdSmartDevices jds = new JdSmartDevices();
      *    JdSmartDevice device1 = new JdSmartDevice();
      *    JdSmartDevice device2 = new JdSmartDevice();
@@ -597,7 +597,7 @@ JdSmartCtrlCmd　表示一个设备的指令操作，就是将这些设备的指
     /**
      * 得到所有的设备类型值
      * <pre>
-     * 例如:
+     * 例如|
      *    List<Integer> result = new ArrayList<Integer>();
      *    JdSmartDevice device1 = new JdSmartDevice();
      *    JdSmartDevice device2 = new JdSmartDevice();
@@ -631,7 +631,7 @@ JdSmartCtrlCmd　表示一个设备的指令操作，就是将这些设备的指
     /**
      * 获取某个指定devId的设备
      * <pre>
-     * 例如:
+     * 例如|
      *     callback.onResult(JdSmartConstant.RESULT_SUCCESS, JSON.toJSONString(jdSmartDevice), "")
      * </pre>
      * @param deviceID 设备的devId, 或者 JdSmartDevice的json字符串
@@ -642,13 +642,13 @@ JdSmartCtrlCmd　表示一个设备的指令操作，就是将这些设备的指
 
 ### void controlDevice(JdSmartCtrlCmd cmd, JdbaseCallback callback)
 
-控制设备，cmd里order表示要执行的操作指令, value1,value2,value3,value4表示命令参数
+控制设备，cmd里order表示要执行的操作指令,  |value1, |value2, |value3, |value4表示命令参数
 
 ``` java
     /**
      * 控制设备
      * <pre>
-     * 例如:
+     * 例如|
      *     callback.onResult(JdbaseContant.RESULT_SUCCESS, "success", "");
      *     callback.onResult(JdbaseContant.RESULT_FAIL, "fail", "");
      * </pre>
@@ -708,7 +708,7 @@ JdSmartCtrlCmd　表示一个设备的指令操作，就是将这些设备的指
     /**
      * 当设备信息有变化时，应该调用回调
      * <pre>
-     * 例如:
+     * 例如|
      *     callback.onResult(JdSmartConstant.ACTION_REPORT_DEVICE_STATUS, JSON.toJSONString(jdSmartDevice), "")
      * </pre>
      * @param callback 负责回调新的设备信息给上层
@@ -776,7 +776,7 @@ JdSmartCtrlCmd　表示一个设备的指令操作，就是将这些设备的指
 </thead>
 <tbody>
 <tr class="odd">
-<td><p>value1</p></td>
+<td><p> |value1</p></td>
 </tr>
 <tr class="even">
 <td><p>填写0表示打开<br />
@@ -793,7 +793,7 @@ JdSmartCtrlCmd　表示一个设备的指令操作，就是将这些设备的指
 </thead>
 <tbody>
 <tr class="odd">
-<td><p>value1</p></td>
+<td><p> |value1</p></td>
 </tr>
 <tr class="even">
 <td><p>填写0表示打开<br />
@@ -810,7 +810,7 @@ JdSmartCtrlCmd　表示一个设备的指令操作，就是将这些设备的指
 </thead>
 <tbody>
 <tr class="odd">
-<td><p>value1</p></td>
+<td><p> |value1</p></td>
 </tr>
 <tr class="even">
 <td><p>当前移动位置<br />
@@ -827,7 +827,7 @@ JdSmartCtrlCmd　表示一个设备的指令操作，就是将这些设备的指
 </thead>
 <tbody>
 <tr class="odd">
-<td><p>value1</p></td>
+<td><p> |value1</p></td>
 </tr>
 <tr class="even">
 <td><p>当前移动位置<br />
@@ -844,7 +844,7 @@ JdSmartCtrlCmd　表示一个设备的指令操作，就是将这些设备的指
 </thead>
 <tbody>
 <tr class="odd">
-<td><p>value1</p></td>
+<td><p> |value1</p></td>
 </tr>
 <tr class="even">
 <td><p>填写0表示关闭，不需要报警<br />
@@ -861,7 +861,7 @@ JdSmartCtrlCmd　表示一个设备的指令操作，就是将这些设备的指
 </thead>
 <tbody>
 <tr class="odd">
-<td><p>value1</p></td>
+<td><p> |value1</p></td>
 </tr>
 <tr class="even">
 <td><p>填写0表示不报警<br />
@@ -878,7 +878,7 @@ JdSmartCtrlCmd　表示一个设备的指令操作，就是将这些设备的指
 </thead>
 <tbody>
 <tr class="odd">
-<td><p>value1</p></td>
+<td><p> |value1</p></td>
 </tr>
 <tr class="even">
 <td><p>填写0表示没有报警<br />
@@ -889,13 +889,13 @@ JdSmartCtrlCmd　表示一个设备的指令操作，就是将这些设备的指
 
 | 温湿度传感器 |
 |--------------|
-| value1       |
+ | |value1       |
 | 填写温度值   |
 
 | 照度                                |
 |-------------------------------------|
-| value1                              |
-| 填写传感器上报的测量值MeasuredValue |
+ | |value1                              |
+| 填写传感器上报的测量值Measured |value |
 
 <table>
 <thead>
@@ -905,7 +905,7 @@ JdSmartCtrlCmd　表示一个设备的指令操作，就是将这些设备的指
 </thead>
 <tbody>
 <tr class="odd">
-<td><p>value1</p></td>
+<td><p> |value1</p></td>
 </tr>
 <tr class="even">
 <td><p>填写on/off属性值<br />
@@ -922,7 +922,7 @@ JdSmartCtrlCmd　表示一个设备的指令操作，就是将这些设备的指
 </thead>
 <tbody>
 <tr class="odd">
-<td><p>value1</p></td>
+<td><p> |value1</p></td>
 </tr>
 <tr class="even">
 <td><p>填写0表示打开<br />
@@ -933,21 +933,21 @@ JdSmartCtrlCmd　表示一个设备的指令操作，就是将这些设备的指
 
 ### 普通灯，开关，插座
 
-命令:
+命令|
 
 ``` java
-cmd.setOrder(JdSmartDeviceOrder.ON), value1不用设置
+cmd.setOrder(JdSmartDeviceOrder.ON),  |value1不用设置
 ```
 
 状态：
 
 ``` java
-cmd.value1("0") //表示状态是开
+cmd. |value1("0") //表示状态是开
 ```
 
 ### 调光灯
 
-命令:
+命令|
 
 ``` java
 cmd.setOrder(JdSmartDeviceOrder.ON) //ON开,OFF关
@@ -955,19 +955,19 @@ cmd.setOrder(JdSmartDeviceOrder.ON) //ON开,OFF关
 
 ``` java
 cmd.setOrder(JdSmartDeviceOrder.MOVE_TO_LEVEL) //亮度比例
-cmd.setValue2("30") //最高亮度255
+cmd.set |value2("30") //最高亮度255
 ```
 
 状态：
 
 ``` java
-cmd.value1("0")  //value1表示开关状态 "0"表示状态打开,否则为关闭状态
-cmd.value2("30") //value2表示亮度,最高亮度255
+cmd. |value1("0")  // |value1表示开关状态 "0"表示状态打开,否则为关闭状态
+cmd. |value2("30") // |value2表示亮度,最高亮度255
 ```
 
 ### 窗帘/开窗器/温控器
 
-命令:
+命令|
 
 ``` java
 cmd.setOrder(JdSmartDeviceOrder.OPEN) //OPEN开,CLOSE关, STOP暂停移动
@@ -975,18 +975,18 @@ cmd.setOrder(JdSmartDeviceOrder.OPEN) //OPEN开,CLOSE关, STOP暂停移动
 
 ``` java
 cmd.setOrder(JdSmartDeviceOrder.MOVE_TO_LEVEL) //移动比例
-cmd.setValue1("30") //百分比为30%
+cmd.set |value1("30") //百分比为30%
 ```
 
 状态：
 
 ``` java
-cmd.value1("10") //表示状态是10%,如果是100，则设备是全开状态
+cmd. |value1("10") //表示状态是10%,如果是100，则设备是全开状态
 ```
 
 ### 空调
 
-命令:
+命令|
 
 -   打开空调
 
@@ -998,30 +998,30 @@ cmd.setOrder(JdSmartDeviceOrder.OPEN)
 
 ``` java
 cmd.setOrder(JdSmartDeviceOrder.NEXT)
-cmd.setValue1(JdSmartDeviceOrder.AIRCONDITION_MODE_TYPE)
+cmd.set |value1(JdSmartDeviceOrder.AIRCONDITION_MODE_TYPE)
 ```
 
 -   设置制冷模式
 
 ``` java
 cmd.setOrder(JdSmartDeviceOrder.SET)
-cmd.setValue1(JdSmartDeviceOrder.AIRCONDITION_MODE_TYPE)
-cmd.setValue2(JdSmartDeviceOrder.AIRCONDITION_MODE_COOL)
+cmd.set |value1(JdSmartDeviceOrder.AIRCONDITION_MODE_TYPE)
+cmd.set |value2(JdSmartDeviceOrder.AIRCONDITION_MODE_COOL)
 ```
 
 -   设置中风
 
 ``` java
 cmd.setOrder(JdSmartDeviceOrder.SET)
-cmd.setValue1(JdSmartDeviceOrder.AIRCONDITION_WIND_RATE_TYPE)
-cmd.setValue2(JdSmartDeviceOrder.AIRCONDITION_WIND_RATE_MIDDLE)
+cmd.set |value1(JdSmartDeviceOrder.AIRCONDITION_WIND_RATE_TYPE)
+cmd.set |value2(JdSmartDeviceOrder.AIRCONDITION_WIND_RATE_MIDDLE)
 ```
 
 -   设置温度26度
 
 ``` java
 cmd.setOrder(JdSmartDeviceOrder.MOVE_TO_LEVEL)
-cmd.setValue1("26")
+cmd.set |value1("26")
 ```
 
 状态：
@@ -1037,7 +1037,7 @@ cmd.setGroupData(jobj.toJSONString());
 
 ### Sensor传感器
 
-命令:
+命令|
 
 -   关闭正在发声的警报
 
@@ -1047,21 +1047,23 @@ cmd.setOrder(JdSmartDeviceOrder.MUTE)
 
 状态：
 
--   门磁、窗磁
-
-value1: 填写0表示关闭，不需要报警，填写1表示打开，需要报警
-value3: 填写0表示低电量，填写1表示正常电量
-value4: 填写电量值
-\* 烟感 value1: 填写0表示不报警，填写1表示报警
-value3: 填写0表示低电量，填写1表示正常电量
-value4: 填写电量值
-\* 人体红外 value1: 填写0表示没有报警，填写1表示检测到入侵，需要报警
-value2: 填写1表示入侵的人一直存在，填写0表示没有检测到入侵持续存在
-value3: 填写0表示低电量，填写1表示正常电量；value4填写电量值
-\* 温湿度传感器 value1: 填写温度值
-value2: 填写湿度值
-value4: 填写电量值（-1表示此设备不是电池供电的设备）
-\* 照度 value1: 填写传感器上报的测量值MeasuredValue
-value4: 填写电量值
-\* 门锁 value1: 填写on/off属性值，0表示状态为开，填1表示状态为关
-value4: 填写电量值
+ 
+ 类别       | 参数   | 描述                                               
+-----------|-----------|-----------
+门磁、窗磁 | value1 | 填写0表示关闭，不需要报警，填写1表示打开，需要报警
+ |value3 | 填写0表示低电量，填写1表示正常电量                
+ |value4| 填写电量值 
+烟感  |value1| 填写0表示不报警，填写1表示报警 
+ |value3| 填写0表示低电量，填写1表示正常电量 
+ |value4| 填写电量值 
+人体红外  |value1| 填写0表示没有报警，填写1表示检测到入侵，需要报警 
+ |value2| 填写1表示入侵的人一直存在，填写0表示没有检测到入侵持续存在 
+ |value3| 填写0表示低电量，填写1表示正常电量；
+ |value4 |填写电量值 
+温湿度传感器 |value1| 填写温度值 
+ |value2| 填写湿度值 
+ |value4| 填写电量值（-1表示此设备不是电池供电的设备） 
+照度 |value1| 填写传感器上报的测量值Measured |value 
+ |value4| 填写电量值 
+| 门锁 |value1| 填写on/off属性值，0表示状态为开，填1表示状态为关 
+ |value4| 填写电量值 
