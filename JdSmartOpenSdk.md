@@ -102,25 +102,25 @@ void changeDeviceStatus(JdSmartCtrlCmd cmd)
 
 1.如果接收到设备控制命令或场景执行命令时，表示如下
 order表示命令，详情见JdSmartDeviceOrder类
- |value1， |value2， |value3， |value4 表示此命令所带的参数
+ value1， value2， value3， value4 表示此命令所带的参数
 groupData 是jason字符串，如果设备的命令较复杂，用groupData一次传递传多个参数值
 例如：
 收到开灯命令：
 
 ``` java
 JdSmartCtrlCmd.getOrder()将等于JdSmartDeviceOrder.ON 
-JdSmartCtrlCmd.get |value1()，因为开灯命令简单不用带参数,不必关注 
+JdSmartCtrlCmd.getValue1()，因为开灯命令简单不用带参数,不必关注 
 ```
 
 收到设置空调到下一个模式命令：
 
 ``` java
 JdSmartCtrlCmd.getOrder()将等于JdSmartDeviceOrder.NEXT
-JdSmartCtrlCmd.get |value1()将等于AIRCONDITION_MODE_TYPE  
+JdSmartCtrlCmd.getValue1()将等于AIRCONDITION_MODE_TYPE  
 ```
 
 2.更新设备最新状态给UI，可以不必处理JdSmartCtrlCmd.order成员变量，表示如下：
- |value1- |value4 表示此设备的当前状态是什么
+ value1- value4 表示此设备的当前状态是什么
 groupData 是jason字符串，如果设备的命令较复杂，用groupData一次传递传多个值
 例如： 更新灯的当前状态为打开：
 
@@ -657,7 +657,7 @@ JdSmartCtrlCmd　表示一个设备的指令操作，就是将这些设备的指
 
 ### void controlDevice(JdSmartCtrlCmd cmd, JdbaseCallback callback)
 
-控制设备，cmd里order表示要执行的操作指令,  |value1, |value2, |value3, |value4表示命令参数
+控制设备，cmd里order表示要执行的操作指令,  value1, value2, value3, value4表示命令参数
 
 ``` java
     /**
@@ -782,7 +782,7 @@ JdSmartCtrlCmd　表示一个设备的指令操作，就是将这些设备的指
 命令
 
 ``` java
-cmd.setOrder(JdSmartDeviceOrder.ON),  |value1不用设置
+cmd.setOrder(JdSmartDeviceOrder.ON),  value1不用设置
 ```
 
 状态：
