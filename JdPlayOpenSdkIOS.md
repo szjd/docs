@@ -32,7 +32,7 @@ JdplaySdk.framework用于局域网内媒体发现和媒体控制。第三方可�
 3. 在 AppDelegate.m 文件的方法里加入以下代码,确保程序进入后 台后socket保持长连接,以此达到流畅播控音乐的目的。 
 代码如下: 
 
-``` objectc
+``` objective-c
 - (void)applicationDidEnterBackground:(UIApplication *)application { 
     JdPlay_appOnSuspend(); 
     //程序进入后台保持socket长连接 
