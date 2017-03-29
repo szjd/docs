@@ -776,17 +776,19 @@ JdSmartCtrlCmd　表示一个设备的指令操作，就是将这些设备的指
 
 空调设备 
 
+
 | 操作   | order  |  value1| value2 | value3 | value4 | groupData |
 | :----: | :----: | :----: | :----: | :----: | :----: | :----: |
 | 打开   | OPEN   |        |        |        |        |        |
 | 关闭   | CLOSE   |        |        |        |        |        |
 | 调整温度|MOVE_TO_LEVEL| 温度值，例如26，  <br>表示调置为26度|        |        |        |        |
-| 切换到指定工作模式| SET|AIRCONDITION_  <br>MODE_TYPE|工作模式值,例如，  <br>AIRCONDITION_  <br>MODE_COOL||||
-| 切换到指定风速模式| SET|AIRCONDITION_  <br>WIND_RATE_TYPE |风速模式，例如，  <br>AIRCONDITION_  <br>WIND_  RATE_MIDDLE| | |  |
-| 切换到指定扫风模式| SET|AIRCONDITION_WIND_  <br>RATE_TYPE |扫风模式，例如，  <br>AIRCONDITION_WIND  <br>_DIRECTION_LEFT_RIGHT| | |  |
-| 直接切换到下一个工作模式   | NEXT   | AIRCONDITION_  <br>WIND_RATE_TYPE |        |        |        |        |
-| 直接切换到下一个风速模式   | NEXT   | AIRCONDITION_  <br>MODE_TYPE |        |        |        |        |
-| 直接切换到下一个扫风模式   | NEXT   | AIRCONDITION_  <br>WIND_RATE_TYPE |      |   | ||          
+| 切换到指定工作模式|SET|AIRCONDITION_<br>MODE_TYPE|工作模式值,例如，  <br>AIRCONDITION_<br>MODE_COOL||||
+| 切换到指定风速模式|SET|AIRCONDITION_<br>WIND_RATE_TYPE |风速模式，例如，  <br>AIRCONDITION_<br>WIND_RATE<br>_MIDDLE| | |  |
+| 切换到指定扫风模式|SET|AIRCONDITION_<br>WIND_DIRECTION<br>_TYPE |扫风模式，例如，  <br>AIRCONDITION_WIND<br>_DIRECTION_<br>LEFT_RIGHT| | |  |
+| 直接切换到下一个工作模式| NEXT   | AIRCONDITION_<br>WIND_RATE_TYPE |        |        |        |        |
+| 直接切换到下一个风速模式| NEXT   | AIRCONDITION_<br>MODE_TYPE |        |        |        |        |
+| 直接切换到下一个扫风模式| NEXT   | AIRCONDITION_<br>WIND_DIRECTION<br>_TYPE |      |   | ||          
+         
 
 ### 设备状态
 开关类型设备(灯，开关，插座,电视，机顶盒)
