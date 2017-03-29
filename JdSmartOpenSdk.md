@@ -1,11 +1,8 @@
 # JdSmart设备端智能家居控制接入
 
-标签（空格分隔）： 未分类
-
----
 
 ## 概述
-----
+
 
 ### JdSmart
 
@@ -16,7 +13,7 @@ JdSmart是声控智能家居系统，可用于控制智能家居主机及设备�
 是智能家居控制系统开放接入接口，接口简单，接入方便，并提供相应的虚拟设备DEMO供参考
 
 ## JdSmart开放语控智能设备接入操作指南
-----
+
 
 1. 固件默认没有安装有JdSmart SDK DEMO，编译、安装并运行开放SDK DEMO后，必须重启一次机器，因为我们不会实时去检测应用是否已经安装
 
@@ -34,7 +31,7 @@ JdSmart是声控智能家居系统，可用于控制智能家居主机及设备�
 * 打开顶灯：  打开默认房间的顶灯
 
 ## 功能
-----
+
 
 -   支持各种智能设备开关，普通灯，调光灯，窗帘，插座，空调，空气净化器，开窗器，温控器，各种传感器等
 -   获取主机信息，例如主机名称定义
@@ -45,7 +42,7 @@ JdSmart是声控智能家居系统，可用于控制智能家居主机及设备�
 -   控制场景
 
 ## 重点说明
---------
+
 
 1. 通过IJdSmartHost.java接口，JdSmartHostInfo getHostInfo() 可配置主机的能力　
 是否支持登陆，登陆提示信息，是否支持全部场景功能
@@ -57,7 +54,7 @@ controlDevice(JdSmartCtrlCmd cmd, JdbaseCallback callback) 接口中需要将JdS
 3. 为简化第三方JdSmartOpen App后续升级及设备管理，第三方App需要通过getAppId()接口设置appId，为简化appid管理，我司不分配具体appid，为保证全球唯一，建议设置为贵司的域名。例如：美的集团设置appid值为 midea.com<font color= "red" >注意每个设备仅能绑定一次，并存入我司后台服务器。</font> 　
 
 ## 主要类介绍
-----------
+
 
 ### JdSmartAccount类
 
@@ -173,7 +170,7 @@ getSceneId()和setSceneId() //已过时，不建议使用
 那么将包含4条指令，List<JdSmartCtrlCmd> getCmdList()将返回4条数据命令
 
 ## 参考示例说明
-------------
+
 
 ### CustomSmartService.java
 
@@ -211,7 +208,6 @@ CustomSmartService.java是与其他Jd软件服务通信的服务类, 不需要�
 ```
 
 IJdSmartHost.java接口
----------------------
 
 主机相关接口
 
@@ -738,16 +734,17 @@ JdSmartCtrlCmd　表示一个设备的指令操作，就是将这些设备的指
 ```
 
 ## 设备命令与设备状态说明
-----------------------
 
 ### 设备命令
 开关类型设备(灯，开关，插座,电视，机顶盒)
+
 | 操作   | order  |  value1| value2 | value3 | value4 | groupData |
 | :----: | :----: | :----: | :----: | :----: | :----: | :----: |
 | 打开   | ON     |        |        |        |        |        |
 | 关闭   | OFF    |        |        |        |        |        |
 
 调光灯
+
 | 操作   | order  |  value1| value2 | value3 | value4 | groupData |
 | :----: | :----: | :----: | :----: | :----: | :----: | :----: |
 | 打开   | ON     |        |        |        |        |        |
@@ -756,12 +753,14 @@ JdSmartCtrlCmd　表示一个设备的指令操作，就是将这些设备的指
 
 
 多功能控制盒
+
 | 操作   | order  |  value1| value2 | value3 | value4 | groupData |
 | :----: | :----: | :----: | :----: | :----: | :----: | :----: |
 | 打开   | OPEN     |        |        |        |        |        |
 | 关闭   | CLOSE    |        |        |        |        |        |
 
 有开关和一个进度属性的设备(窗帘,开窗器,温控器等)
+
 | 操作   | order  |  value1| value2 | value3 | value4 | groupData |
 | :----: | :----: | :----: | :----: | :----: | :----: | :----: |
 | 打开   | OPEN     |        |        |        |        |        |
@@ -770,11 +769,13 @@ JdSmartCtrlCmd　表示一个设备的指令操作，就是将这些设备的指
 | 停止移动| STOP    |        |        |        |        |        |
 
 警报设备
+
 | 操作   | order  |  value1| value2 | value3 | value4 | groupData |
 | :----: | :----: | :----: | :----: | :----: | :----: | :----: |
 | 关闭警报  | MUTE     |        |        |        |        |        |
 
 空调设备 
+
 | 操作   | order  |  value1| value2 | value3 | value4 | groupData |
 | :----: | :----: | :----: | :----: | :----: | :----: | :----: |
 | 打开   | OPEN   |        |        |        |        |        |
@@ -789,38 +790,45 @@ JdSmartCtrlCmd　表示一个设备的指令操作，就是将这些设备的指
 
 ### 设备状态
 开关类型设备(灯，开关，插座,电视，机顶盒)
+
 | value1| value2| value3| value4| groupData|
 |:----:| :----:|:----:|:----: |:----: |
 |0: 表示打开 <br>-1:表示关闭|||||
 
 调光灯
+
 | value1| value2| value3| value4| groupData|
 |:----:| :----:|:----:|:----: |:----: |
 |0: 表示打开 <br>-1:表示关闭|填写亮度值,最高值255||||
 
 多功能控制盒
+
 | value1| value2| value3| value4| groupData|
 |:----:| :----:|:----:|:----: |:----: |
 |当前移动位置(只有0和100两个进度值)         <br>0：表示关闭，100：表示打开 <br>只有0和100两个进度值 |||||
 
 
 有开关和一个进度属性的设备(窗帘，开窗器等)
+
 | value1| value2| value3| value4| groupData|
 |:----:| :----:|:----:|:----: |:----: |
 |当前移动位置(0~100)<br>例如填写10, 表示移动10%, 0表示关闭,100表示打开|||||
 
         
 门磁、窗磁
+
 | value1| value2| value3| value4| groupData|
 |:----:| :----:|:----:|:----: |:----: |
 | 填写0表示关闭，不需要报警<br>填写1表示打开，需要报警||填写0表示低电量<br>填写1表示正常电量 | 填写电量值|   
 
 烟感
+
 | value1| value2| value3| value4| groupData|
 |:----:| :----:|:----:|:----: |:----: |
 | 填写0表示不报警<br>填写1表示报警 |  |   填写0表示低电量<br>填写1表示正常电量 |    填写电量值   |
 
 人体红外
+
 | value1| value2| value3| value4| groupData|
 |:----:| :----:|:----:|:----: |:----: |
 |填写0表示没有报警<br>填写1表示检测到入侵，需要报警  |填写1表示入侵的人一直存在<br>填写0表示没有检测到入侵持续存在|填写0表示低电量<br>填写1表示正常电量| 填写电量值   |
@@ -830,16 +838,19 @@ JdSmartCtrlCmd　表示一个设备的指令操作，就是将这些设备的指
 |填写温度,乘以100值|  填写湿度值,乘以100   | |填写电量值（-1表示此设备不是电池供电的设备）  |
 
 照度
+
 | value1| value2| value3| value4| groupData|
 |:----:| :----:|:----:|:----: |:----: |
 |填写传感器上报的测量值MeasuredValue |||     填写电量值   |
 
 门锁
+
 | value1| value2| value3| value4| groupData|
 |:----:| :----:|:----:|:----: |:----: |
 | 填写on/off属性值 <br>0:表示状态为<br>1:表示状态为关   |||     电量值 |
 
 空调设备
+
 | value1| value2| value3| value4| groupData|
 |:----:| :----:|:----:|:----: |:---- |
 | 填写0表示打开 <br>填写-1表示关闭 |||| json 字符串，键值分别为温度，空调模式，风速，风向<br>JSONObject jobj = new JSONObject() <br>//空调温度 <br>jobj.put(JdSmartDeviceOrder.TEMPERATURE, "26") <br>//空调模式 <br>jobj.put(JdSmartDeviceOrder.AIRCONDITION_MODE_TYPE, <br>JdSmartDeviceOrder.AIRCONDITION_MODE_COOL)<br>//空调风速 <br>jobj.put(JdSmartDeviceOrder.AIRCONDITION_WIND_RATE_TYPE, <br>JdSmartDeviceOrder.AIRCONDITION_WIND_RATE_AUTO) <br>//空调风向 <br>jobj.put(JdSmartDeviceOrder.AIRCONDITION_WIND_DIRECTION_TYPE, <br>JdSmartDeviceOrder.AIRCONDITION_WIND_DIRECTION__UP_DOWN)|
