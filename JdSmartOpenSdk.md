@@ -44,12 +44,11 @@ JdSmart是声控智能家居系统，可用于控制智能家居主机及设备�
 ## 重点说明
 
 
-1. 通过IJdSmartHost.java接口，JdSmartHostInfo getHostInfo() 可配置主机的能力　
-是否支持登陆，登陆提示信息，是否支持全部场景功能
+1. 通过IJdSmartHost.java接口，JdSmartHostInfo getHostInfo() 可配置主机的能力是否支持登陆，登陆提示信息，是否支持全部场景功能
 
-2. 实现IJdSmartHost.java不同的接口函数，需要将JdSmartScene，JdSmartCtrlCmd，JdSmartDevice这些类转化为你的智能家居对应的类类型。例如，　
-getAllDevices(JdbaseCallback callback)接口中需要将智能家居设备转化为JdSmartDevices　
-controlDevice(JdSmartCtrlCmd cmd, JdbaseCallback callback) 接口中需要将JdSmartCtrlCmd转化为智能家居设备的执行指令　
+2. 实现IJdSmartHost.java不同的接口函数，需要将JdSmartScene，JdSmartCtrlCmd，JdSmartDevice这些类转化为你的智能家居对应的类类型。
+　　例如，getAllDevices(JdbaseCallback callback)接口中需要将智能家居设备转化为JdSmartDevices　
+　　controlDevice(JdSmartCtrlCmd cmd, JdbaseCallback callback) 接口中需要将JdSmartCtrlCmd转化为智能家居设备的执行指令　
 
 3. 为简化第三方JdSmartOpen App后续升级及设备管理，第三方App需要通过getAppId()接口设置appId，为简化appid管理，我司不分配具体appid，为保证全球唯一，建议设置为贵司的域名。例如：美的集团设置appid值为 midea.com<font color= "red" >注意每个设备仅能绑定一次，并存入我司后台服务器。</font> 　
 
@@ -88,8 +87,8 @@ getJdSmartCtrlCmd() //会返回一个JdSmartCtrlCmd变量，表示设备当前�
 
 ### JdSmartCtrlCmd类
 
-通过deviceId与具体JdSmartDevice设备关联，JdSmartDevice类中同时包含JdSmartCtrlCmd类
-此类包含order, |value1, |value2, |value3, |value4,groupData等变量
+通过deviceId与具体JdSmartDevice设备关联，JdSmartDevice类中同时包含JdSmartCtrlCmd类<br>
+此类包含order,value1,value2,value3,value4,groupData等变量<br>
 有两个含义，
 
 1.  智能设备的命令,一般指接收到设备控制命令或场景执行命令时
@@ -102,11 +101,11 @@ void controlDevice(JdSmartCtrlCmd cmd, JdbaseCallback callback)
 void changeDeviceStatus(JdSmartCtrlCmd cmd)
 ```
 
-1.如果接收到设备控制命令或场景执行命令时，表示如下
-order表示命令，详情见JdSmartDeviceOrder类
- value1， value2， value3， value4 表示此命令所带的参数
-groupData 是jason字符串，如果设备的命令较复杂，用groupData一次传递传多个参数值
-例如：
+1.如果接收到设备控制命令或场景执行命令时，表示如下<br>
+order表示命令，详情见JdSmartDeviceOrder类<br>
+value1， value2， value3， value4 表示此命令所带的参数<br>
+groupData 是jason字符串，如果设备的命令较复杂，用groupData一次传递传多个参数值<br>
+例如：<br>
 收到开灯命令：
 
 ``` java
@@ -121,9 +120,9 @@ JdSmartCtrlCmd.getOrder()将等于JdSmartDeviceOrder.NEXT
 JdSmartCtrlCmd.getValue1()将等于AIRCONDITION_MODE_TYPE  
 ```
 
-2.更新设备最新状态给UI，可以不必处理JdSmartCtrlCmd.order成员变量，表示如下：
- value1- value4 表示此设备的当前状态是什么
-groupData 是jason字符串，如果设备的命令较复杂，用groupData一次传递传多个值
+2.更新设备最新状态给UI，可以不必处理JdSmartCtrlCmd.order成员变量，表示如下：<br>
+value1- value4 表示此设备的当前状态是什么<br>
+groupData 是jason字符串，如果设备的命令较复杂，用groupData一次传递传多个值<br>
 例如： 更新灯的当前状态为打开：
 
 ``` java
@@ -143,9 +142,10 @@ airConditionCmd.setGroupData(jobj.toJSONString());
 
 ### JdSmartDeviceType类
 
-包括开关，普通灯，调光灯，窗帘，插座，空调，电视，空气净化器，开窗器，温控器，多功能控制盒，各种传感器
-====**注意：**==== DEVICE\_TYPE\_CURTAINS| 表示可以精确获取移动位置的窗帘
-DEVICE\_TYPE\_CURTAINS\_NO\_POSITION| 表示不能精确获取移动位置的窗帘
+包括开关，普通灯，调光灯，窗帘，插座，空调，电视，空气净化器，开窗器，温控器，多功能控制盒，各种传感器<br>
+**注意：**<br>
+DEVICE_TYPE_CURTAINS 表示可以精确获取移动位置的窗帘<br>
+DEVICE_TYPE_CURTAINS_NO_POSITION 表示不能精确获取移动位置的窗帘
 
 ### JdSmartDeviceOrder类
 
@@ -159,23 +159,21 @@ DEVICE\_TYPE\_CURTAINS\_NO\_POSITION| 表示不能精确获取移动位置的窗
 ### JdSmartScene类
 
 表示场景类，有一个唯一sceneNo,标识场景
-getSceneNo()和setSceneNo() //获得和设置场景号
-getSceneId()和setSceneId() //已过时，不建议使用
+* getSceneNo()和setSceneNo() //获得和设置场景号
+* getSceneId()和setSceneId() //已过时，不建议使用
 
 ### JdSmartSceneBind类
 
-表示场景绑定，它的成员变量sceneNo与JdSmartScene类的sceneNo关联，
-场景绑定的含义是，场景中包含哪些设备命令。
-例如，假设有一个回家场景，里面包含动作，当主人回家后，开客厅灯，开电视，开主卧房间空间。
+表示场景绑定，它的成员变量sceneNo与JdSmartScene类的sceneNo关联<br>
+场景绑定的含义是，场景中包含哪些设备命令。<br>
+例如，假设有一个回家场景，里面包含动作，当主人回家后，开客厅灯，开电视，开主卧房间空间<br>
 那么将包含4条指令，List<JdSmartCtrlCmd> getCmdList()将返回4条数据命令
 
 ## 参考示例说明
-
-
 ### CustomSmartService.java
 
-CustomSmartService.java是与其他Jd软件服务通信的服务类, 不需要做任何修改。
-首先在AndroidManifest.xml 中配置启动CustomSmartService.java服务的action名
+CustomSmartService.java是与其他Jd软件服务通信的服务类, 不需要做任何修改。<br>
+首先在AndroidManifest.xml 中配置启动CustomSmartService.java服务的action名<br>
 
 ``` java
 <action android|name="com.judian.service.CustomSmartService" />　//请不要更改这个，因为SDK端依赖这个
