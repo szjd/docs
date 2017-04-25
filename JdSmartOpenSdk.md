@@ -100,7 +100,7 @@ getJdSmartCtrlCmd() //会返回一个JdSmartCtrlCmd变量，表示设备当前�
 
 ``` java
 void controlDevice(JdSmartCtrlCmd cmd, JdbaseCallback callback)
-void changeDeviceStatus(JdSmartCtrlCmd cmd)
+void changeDeviceStatus(JdSmartCtrlCmd cmd, JdSmartDevice dev)
 ```
 
 1.如果接收到设备控制命令或场景执行命令时，表示如下<br>
@@ -203,7 +203,7 @@ CustomSmartService.java是与其他Jd软件服务通信的服务类, 不需要�
         if (callback != null) {
             callback.onResult(JdbaseContant.RESULT_SUCCESS, "success", "");
         }
-        changeDeviceStatus(cmd); //更新设备的状态
+        changeDeviceStatus(cmd, dev); //更新设备的状态
     }
 ```
 
