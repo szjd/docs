@@ -100,11 +100,20 @@ i0: [必选] cmd命令，支持的命令及参数设置如下。
 |106|MEDIA_GET_POSITION | C->S|获取播放位置   | 无  | s0: 当前时间(秒):总时间(秒)  |
 |107|MEDIA_SET_VOLUME | C->S| 设置音量  | i1: 音量值(0~100)  | 无  |
 |108|MEDIA_GET_VOLUME | C->S| 获取音量 | 无  | i1: 音量值(0~100)  |
+|109|MEDIA_GET_ALL_LOCAL_MEDIA | C->S| 获取所有本地歌曲信息 | 无  | s0:元数据数组  |
+|110|MEDIA_PLAY_LOCAL_SONG | C->S| 播放本地歌曲 | s0:音乐元数据数组 i0:开始播放索引  | 无  |
+|111|MEDIA_SWITCH_PLAY_MODE | C->S| 切换播放模式 | 无  | 无  |
+|112|MEDIA_GET_SCENE_MUSICS | C->S| 获取所有场景音乐 | 无  | s0: 元数据数组,场景音乐有效字段只有songId, songTitle  |
+|113|MEDIA_PLAY_SCENE_MUSIC | C->S| 播放场景音乐 | i0:场景音乐id,即元数据中的songId字段  | 无　|
+
+
 |150|MEDIA_REPORT_METADATA | S->C| 反馈元数据  | s0:参考元数据  | Client无需回复  |
 |151|MEDIA_REPORT_PlAY_STATE | S->C| 反馈播放状态  | i1: 播放状态 <br> 0:暂停<br>1:正在播放<br> 2:缓冲结束<br> | Client无需回复  |
 |152|MEDIA_REPORT_VOLUME | S->C| 反馈音量  | i1:音量值(0~100)  | Client无需回复  |
+|153|MEDIA_REPORT_PLAY_MODE | S->C| 反馈当前的播放模式 | i1: 播放模式 <br> 0:重复所有<br>1:单曲循环<br> 2:随机播放<br>  | Client无需回复  |
 |200|DEVICE_POWER_ON | C->S| 开机 | 无  | 无  |
 |201|DEVICE_POWER_OFF | C->S| 关机 | 无  | 无  |
+
 
 ##### 元数据
 ```json
@@ -182,11 +191,17 @@ public class JSSSConstant {
     public static final int MEDIA_GET_POSITION = 106;
     public static final int MEDIA_SET_VOLUME = 107;
     public static final int MEDIA_GET_VOLUME = 108;
+    public static final int MEDIA_GET_ALL_LOCAL_MEDIA = 109;
+    public static final int MEDIA_PLAY_LOCAL_SONG = 110;
+    public static final int MEDIA_SWITCH_PLAY_MODE = 111;
+    public static final int MEDIA_GET_SCENE_MUSICS = 112;
+    public static final int MEDIA_PLAY_SCENE_MUSIC = 113;
 
     //JSSS协议媒体状态反馈命令
     public static final int MEDIA_REPORT_METADATA = 150;
     public static final int MEDIA_REPORT_PlAY_STATE = 151;
     public static final int MEDIA_REPORT_VOLUME = 152;
+    public static final int MEDIA_REPORT_PLAY_MODE = 153;
     
     //JSSS协议设备控制命令
     public static final int DEVICE_POWER_ON = 200;
