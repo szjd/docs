@@ -92,25 +92,25 @@ i0: [必选] cmd命令，支持的命令及参数设置如下。
 |命令值|命令名 | 方向 | 功能| 请求参数  | PubAck回复参数|
 |--------|--------|--------|--------|--------|--------|
 |100|MEDIA_GET_METADATA | C->S|  获取元数据 | 无  | s0:参考元数据 |
-|101|MEDIA_PLAY | C->S| 播放  | 无  | 无  |
-|102|MEDIA_PAUSE | C->S| 暂停  | 无  | 无  |
-|103|MEDIA_NEXT | C->S|下一首   | 无  | 无  |
-|104|MEDIA_PREV | C->S|上一首   | 无  | 无  |
-|105|MEDIA_SEEK | C->S|跳播   | i1: 跳播位置，单位秒  | 无  |
+|101|MEDIA_PLAY | C->S| 播放  | 无  | 无参数  |
+|102|MEDIA_PAUSE | C->S| 暂停  | 无  | 无参数  |
+|103|MEDIA_NEXT | C->S|下一首   | 无  | 无参数  |
+|104|MEDIA_PREV | C->S|上一首   | 无  | 无参数  |
+|105|MEDIA_SEEK | C->S|跳播   | i1: 跳播位置，单位秒  | 无参数  |
 |106|MEDIA_GET_POSITION | C->S|获取播放位置   | 无  | s0: 当前时间(秒):总时间(秒)  |
-|107|MEDIA_SET_VOLUME | C->S| 设置音量  | i1: 音量值(0~100)  | 无  |
+|107|MEDIA_SET_VOLUME | C->S| 设置音量  | i1: 音量值(0~100)  | 无参数  |
 |108|MEDIA_GET_VOLUME | C->S| 获取音量 | 无  | i1: 音量值(0~100)  |
 |109|MEDIA_GET_ALL_LOCAL_MEDIA | C->S| 获取所有本地歌曲信息 | 无  | s0:元数据数组  |
-|110|MEDIA_PLAY_LOCAL_SONG | C->S| 播放本地歌曲 | s0:音乐元数据数组 i0:开始播放索引  | 无  |
-|111|MEDIA_SWITCH_PLAY_MODE | C->S| 切换播放模式，如果是电台类，会提示不支持电台类模式切换 | 无  | 无  |
+|110|MEDIA_PLAY_LOCAL_SONG | C->S| 播放本地歌曲 | s0:音乐元数据数组 i0:开始播放索引  | 无参数  |
+|111|MEDIA_SWITCH_PLAY_MODE | C->S| 切换播放模式，如果是电台类，会提示不支持电台类模式切换 | 无  | 无参数  |
 |112|MEDIA_GET_SCENE_MUSICS | C->S| 获取所有场景音乐 | 无  | s0: 元数据数组,场景音乐有效字段只有songId, songTitle  |
-|113|MEDIA_PLAY_SCENE_MUSIC | C->S| 播放场景音乐 | i0:场景音乐id,即元数据中的songId字段  | 无　|
+|113|MEDIA_PLAY_SCENE_MUSIC | C->S| 播放场景音乐 | i0:场景音乐id,即元数据中的songId字段  | 无参数　|
 |150|MEDIA_REPORT_METADATA | S->C| 反馈元数据  | s0:参考元数据  | Client无需回复  |
 |151|MEDIA_REPORT_PlAY_STATE | S->C| 反馈播放状态  | i1: 播放状态 <br> 0:暂停<br>1:正在播放<br> 2:缓冲结束<br> | Client无需回复  |
 |152|MEDIA_REPORT_VOLUME | S->C| 反馈音量  | i1:音量值(0~100)  | Client无需回复  |
 |153|MEDIA_REPORT_PLAY_MODE | S->C| 反馈当前的播放模式 | i1: 播放模式 <br> 0:重复所有<br>1:单曲循环<br> 2:随机播放<br>  | Client无需回复  |
-|200|DEVICE_POWER_ON | C->S| 开机 | 无  | 无  |
-|201|DEVICE_POWER_OFF | C->S| 关机 | 无  | 无  |
+|200|DEVICE_POWER_ON | C->S| 开机 | 无  | 无参数  |
+|201|DEVICE_POWER_OFF | C->S| 关机 | 无  | 无参数  |
 
 
 ##### 元数据
