@@ -101,10 +101,10 @@ i0: [必选] cmd命令，支持的命令及参数设置如下。
 |107|MEDIA_SET_VOLUME | C->S| 设置音量  | i1: 音量值(0~100)  | 无参数  |
 |108|MEDIA_GET_VOLUME | C->S| 获取音量 | 无  | i1: 音量值(0~100)  |
 |109|MEDIA_GET_ALL_LOCAL_MEDIA | C->S| 获取所有本地歌曲信息 | 无  | s0:元数据数组  |
-|110|MEDIA_PLAY_LOCAL_SONG | C->S| 播放本地歌曲 | s0:音乐元数据数组 i0:开始播放索引  | 无参数  |
+|110|MEDIA_PLAY_LOCAL_SONG | C->S| 播放本地歌曲 | s0:音乐元数据数组 i1:开始播放索引  | 无参数  |
 |111|MEDIA_SWITCH_PLAY_MODE | C->S| 切换播放模式，如果是电台类，会提示不支持电台类模式切换 | 无  | 无参数  |
 |112|MEDIA_GET_SCENE_MUSICS | C->S| 获取所有场景音乐 | 无  | s0: 元数据数组,场景音乐有效字段只有songId, songTitle  |
-|113|MEDIA_PLAY_SCENE_MUSIC | C->S| 播放场景音乐 | i0:场景音乐id,即元数据中的songId字段  | 无参数　|
+|113|MEDIA_PLAY_SCENE_MUSIC | C->S| 播放场景音乐 | i1:场景音乐id,即元数据中的songId字段  | 无参数　|
 |150|MEDIA_REPORT_METADATA | S->C| 反馈元数据  | s0:参考元数据  | Client无需回复  |
 |151|MEDIA_REPORT_PlAY_STATE | S->C| 反馈播放状态  | i1: 播放状态 <br> 0:暂停<br>1:正在播放<br> 2:缓冲结束<br> | Client无需回复  |
 |152|MEDIA_REPORT_VOLUME | S->C| 反馈音量  | i1:音量值(0~100)  | Client无需回复  |
