@@ -4,7 +4,7 @@
   * [JdPlay苹果移动端接入](JdPlayOpenSdkIOS.md)
   * [JdPlaySS协议接入](JdPlaySS.md)
   * [RS485控制智能家居设备指南](./files/485控制智能设备指南.pdf)
-  * [RS485控制背景音乐协议](./files/智能语控背景音乐系统RS485控制协议v1.0.pdf)
+  * [RS485控制背景音乐协议](./JdRS485.md)
   * [JdSmart设备端智能家居控制接入](JdSmartOpenSdk.md)
   
 ## 概述
