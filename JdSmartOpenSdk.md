@@ -81,6 +81,14 @@ JdSmart是声控智能家居系统，可用于控制智能家居主机及设备<
 3. 为简化第三方JdSmartOpen App后续升级及设备管理，第三方App需要通过getAppId()接口设置appId，为简化appid管理，我司不分配具体appid，为保证全球唯一，建议设置为贵司的域名。例如：美的集团设置appid值为 midea.com<br>
 <font color= "red" >注意每个设备仅能绑定一次，并存入我司后台服务器。</font> 　
 
+4. 可支持bugly升级demo。 要配置升级，不支持热更新
+- 请详细查看 https://bugly.qq.com/v2/ 使用帮助，配置自己的版本升级
+- 修改MyApplication.java 中APP_ID为自己的APP_ID
+- 修改CustomSmartService.java 中， 默认是30分检测一次升级
+``` java
+timer.schedule(new UpgradeTask(), 1000, 1000 * 60 * 30); //30min
+```
+
 ## 主要类介绍
 
 
