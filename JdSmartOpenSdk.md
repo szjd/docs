@@ -87,6 +87,16 @@ JdSmart是声控智能家居系统，可用于控制智能家居主机及设备<
 - 修改CustomSmartService.java 中， 默认是30分检测一次升级
 ``` java
 timer.schedule(new UpgradeTask(), 1000, 1000 * 60 * 30); //30min
+
+```
+
+``` java
+    class UpgradeTask extends java.util.TimerTask{
+        @Override
+        public void run() {
+            Log.d(TAG, "UpgradeTask is runing");
+            //Beta.checkUpgrade();    将此注释取消，修改为 Beta.checkUpgrade(false, true);
+
 ```
 
 ## 主要类介绍
