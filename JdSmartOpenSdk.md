@@ -89,7 +89,7 @@ JdSmart是声控智能家居系统，可用于控制智能家居主机及设备<
 timer.schedule(new UpgradeTask(), 1000, 1000 * 60 * 30); //30min
 
 ```
-
+- 修改CustomSmartService.java 中， 如下部分
 ``` java
     class UpgradeTask extends java.util.TimerTask{
         @Override
