@@ -21,6 +21,7 @@
 | V1.0.07 | 20170328 | 增加新的设备类型，温湿一休sensor,烟感，CO2 sensor, 无进度窗帘   | Luke |
 | V1.1.08 | 20170504 | 支持Bugly升级 | Luke |
 | V1.1.09 | 20170515 | 更新混淆文件proguard-rules.pro<br>支持raw语音，直接将用户语音输出到接口函数 | Luke |
+| V1.2.13 | 20170810 | 支持播放TTS文本内容, playTTS(String tts)<br>新增一些设备类型 <br>修改buggly升级 <br> 更多信息请看sdk中changelog | Luke |
 |        |          |                  |        |
 
 ## 概述
