@@ -113,7 +113,7 @@ timer.schedule(new UpgradeTask(), 1000, 1000 * 60 * 30); //30min
 public void setSupportLogin(boolean supportLogin)  设定是否支持用户登陆
 public void setLoginPrompt(String loginPrompt)     设定登陆时显示的品牌名
 public void setEnableSceneEdit(boolean enable)     设定是否使能场景编辑，如果false,则仅支持获取和执行场景。如果为true,则是支持全部场景功能
-~~public void setFilterVoiceMode(String filterVoiceMode)~~　设定支持raw语音的模式，如果客户想自己处理语音结果，可以设置合适值
+~~public void setFilterVoiceMode(String filterVoiceMode)　设定支持raw语音的模式，如果客户想自己处理语音结果，可以设置合适值~~
 ```
 
 ### JdSmartDevice类
