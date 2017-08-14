@@ -113,7 +113,7 @@ timer.schedule(new UpgradeTask(), 1000, 1000 * 60 * 30); //30min
 public void setSupportLogin(boolean supportLogin)  设定是否支持用户登陆
 public void setLoginPrompt(String loginPrompt)     设定登陆时显示的品牌名
 public void setEnableSceneEdit(boolean enable)     设定是否使能场景编辑，如果false,则仅支持获取和执行场景。如果为true,则是支持全部场景功能
-public void setFilterVoiceMode(String filterVoiceMode)　设定支持raw语音的模式，如果客户想自己处理语音结果，可以设置合适值
+~~public void setFilterVoiceMode(String filterVoiceMode)~~　设定支持raw语音的模式，如果客户想自己处理语音结果，可以设置合适值
 ```
 
 ### JdSmartDevice类
@@ -373,11 +373,11 @@ mJdSmartHostInfo.setSupportLogin(false); //是否支持用户登陆认证，如�
 mJdSmartHostInfo.setLoginPrompt(“Login”);//登陆提示信息，如果支持登陆，则生效。建议写品牌名
 mJdSmartHostInfo.setEnableSceneEdit(true);//默认为true
 //如果设为false, 则只支持获取场景名，和执行场景，仅需实现getScenes和controlScene两个接口
-//如果设为true, 则支持场景所有功能，包括场景编辑，执行，场景绑定编辑,需要实现所有场景相关接口
-mJdSmartHostInfo.setFilterVoiceMode(JdSmartConstant.FILTER_VOICE_MODE_NONE);//默认为true
-//如果设为FILTER_VOICE_MODE_NONE, 则用户不能自己处理语音，setVoiceText()接口将接收不到任何信息
-//如果设为FILTER_VOICE_MODE_CONTROL, 则用户仅能处理控制设备的语音，setVoiceText()接口将接收到控制设备的文本
-//如果设为FILTER_VOICE_MODE_ALL, 则用户能处理所有语音，setVoiceText()接口将接收所有信息
+//如果设为true, 则支持场景所有功能，包括场景编辑，执行，场景绑定编辑,需要实现所有场景相关接口<br>
+~~mJdSmartHostInfo.setFilterVoiceMode(JdSmartConstant.FILTER_VOICE_MODE_NONE);//默认为true~~
+~~//如果设为FILTER_VOICE_MODE_NONE, 则用户不能自己处理语音，setVoiceText()接口将接收不到任何信息~~
+~~//如果设为FILTER_VOICE_MODE_CONTROL, 则用户仅能处理控制设备的语音，setVoiceText()接口将接收到控制设备的文本~~
+~~//如果设为FILTER_VOICE_MODE_ALL, 则用户能处理所有语音，setVoiceText()接口将接收所有信息~~
 
 ``` java
     /**
