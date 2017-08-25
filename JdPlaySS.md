@@ -106,6 +106,8 @@ i0: [必选] cmd命令，支持的命令及参数设置如下。
 |112|MEDIA_GET_SCENE_MUSICS | C->S| 获取所有场景音乐 | 无  | s0: 简单音乐元数据数组,场景音乐有效字段只有songId, songTitle  |
 |113|MEDIA_PLAY_SCENE_MUSIC | C->S| 播放场景音乐 | i1:场景音乐id,即元数据中的songId字段  | 无参数　|
 |114|MEDIA_PLAY_LOCAL_ONE_SONG | C->S| 播放本地单首歌曲，单曲不循环 | s0:仅一个简单音乐元数据，非数组  | 无参数　|
+|115|MEDIA_GET_PLAY_MODE | C->S| 获取当前播放模式 | 无  | <br> i1: 播放模式 <br> 0:重复所有<br>1:单曲循环<br> 2:随机播放<br>　|
+|116|MEDIA_PLAY_TTS | C->S| 用语音播放TTS文本 | s0:TTS文本  | 无参数　|
 |150|MEDIA_REPORT_METADATA | S->C| 反馈元数据  | s0:参考元数据  | Client无需回复  |
 |151|MEDIA_REPORT_PlAY_STATE | S->C| 反馈播放状态  | i1: 播放状态 <br> 0:暂停<br>1:正在播放<br> 2:缓冲结束<br> | Client无需回复  |
 |152|MEDIA_REPORT_VOLUME | S->C| 反馈音量  | i1:音量值(0~100)  | Client无需回复  |
@@ -202,6 +204,9 @@ public class JSSSConstant {
     public static final int MEDIA_SWITCH_PLAY_MODE = 111;
     public static final int MEDIA_GET_SCENE_MUSICS = 112;
     public static final int MEDIA_PLAY_SCENE_MUSIC = 113;
+    public static final int MEDIA_PLAY_ONCE_LOCAL_SONG = 114;
+    public static final int MEDIA_GET_PLAY_MODE = 115;
+    public static final int MEDIA_PLAY_TTS = 116;
 
     //JSSS协议媒体状态反馈命令
     public static final int MEDIA_REPORT_METADATA = 150;
