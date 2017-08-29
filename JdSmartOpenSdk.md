@@ -71,13 +71,18 @@ JdSmart是声控智能家居系统，可用于控制智能家居主机及设备<
 
 
 1. 通过IJdSmartHost.java接口，JdSmartHostInfo getHostInfo() 可配置主机的能力是否支持登陆，登陆提示信息，是否支持raw语音，是否支持全部场景功能（详情见 getHostInfo函数） 
- > mJdSmartHostInfo.setEnableSceneEdit(true);//默认为true <br>
+``` java 
+ mJdSmartHostInfo.setEnableSceneEdit(true);//默认为true <br>
 //如果设为false, 则只支持获取场景名，和执行场景，仅需实现getScenes和controlScene两个接口 <br>
 //如果设为true, 则支持场景所有功能，包括场景编辑，执行，场景绑定编辑,需要实现所有场景相关接口 <br>
+``` 
 
 2. 实现IJdSmartHost.java不同的接口函数，需要将JdSmartScene，JdSmartCtrlCmd，JdSmartDevice这些类转化为你的智能家居对应的类类型。
-　　例如，getAllDevices(JdbaseCallback callback)接口中需要将智能家居设备转化为JdSmartDevices　
-　　controlDevice(JdSmartCtrlCmd cmd, JdbaseCallback callback) 接口中需要将JdSmartCtrlCmd转化为智能家居设备的执行指令　
+　　例如，
+  ``` java
+  getAllDevices(JdbaseCallback callback)接口中需要将智能家居设备转化为JdSmartDevices　
+　controlDevice(JdSmartCtrlCmd cmd, JdbaseCallback callback) 接口中需要将JdSmartCtrlCmd转化为智能家居设备的执行指令　
+``` 
 
 3. 为简化第三方JdSmartOpen App后续升级及设备管理，第三方App需要通过getAppId()接口设置appId，为简化appid管理，我司不分配具体appid，为保证全球唯一，建议设置为贵司的域名。例如：美的集团设置appid值为 midea.com<br>
 <font color= "red" >注意每个设备仅能绑定一次，并存入我司后台服务器。</font> 　
