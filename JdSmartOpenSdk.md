@@ -118,6 +118,9 @@ public class JdSmartDevice {
     String roomId; //房间名， 强调说明，这个字段不是id，是房间名
     ...
 ```
+6. 一键导入功能的管理界面有个“重新导入”，它会首先调用CustomHost.java 中的refeshDevice()接口， 再调用getAlldevices()接口
+
+
 
 ## 主要类介绍
 
@@ -311,6 +314,7 @@ IJdSmartHost.java接口
 设备相关
 
 ``` java
+    void refeshDevice()                            自动导入接口中，重新导入时，会首先调用这个接口 
     void controlDevice(JdSmartCtrlCmd cmd, JdbaseCallback callback)            执行设备指令
     void getAllDevices(JdbaseCallback callback)                                获得所有设备信息
     void getDeviceDetail(final String deviceID, final JdbaseCallback callback) 获得指定设备信息
