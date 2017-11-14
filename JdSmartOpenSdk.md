@@ -105,7 +105,7 @@ timer.schedule(new UpgradeTask(), 1000, 1000 * 60 * 30); //30min
 
 ```
 
-5. 为了支持设备一键导入功能， 需要填写zoonID, roomId值
+5. 为了支持设备一键导入功能， 需要填写zoonID, roomId值， 对应函数为setZoneId()，setRoomId()
 ``` java
 public class JdSmartDevice {
     String deviceType;
