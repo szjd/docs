@@ -849,6 +849,39 @@ JdSmartCtrlCmd　表示一个设备的指令操作，就是将这些设备的指
 | :----: | :----: | :----: | :----: | :----: | :----: | :----: |
 | 关闭警报  | MUTE     |        |        |        |        |        |
 
+扫地机器人 
+
+
+| 操作   | order  |  value1| value2 | value3 | value4 | groupData |
+| :----: | :----: | :----: | :----: | :----: | :----: | :----: |
+| 打开   | OPEN   |        |        |   | |   |
+| 关闭   | CLOSE   |        |        |  |  |   |
+| 清扫模式|SET|SWEEPER_MACHINE_SWEEPER_MODE |   |  |   |  |
+| 自动模式|SET|SWEEPER_MACHINE_AUTO_MODE|||||
+| 强力模式|SET|SWEEPER_MACHINE_FORCE_MODE|| | |  |
+| 静音模式|SET|SWEEPER_MACHINE_MUTE_MODE |    |  | |  |
+| 标准模式|SET|SWEEPER_MACHINE_NORMAL_MODE |   |  |  |  |
+| 回充模式|SET|SWEEPER_MACHINE_CHARGE_MODE |   |   | ||          
+         
+智能晾衣架
+
+
+| 操作   | order  |  value1| value2 | value3 | value4 | groupData |
+| :----: | :----: | :----: | :----: | :----: | :----: | :----: |
+| 打开   | OPEN | | | | | |
+| 关闭   | CLOSE|| | | | |
+| 上升|SET|CLOTHES_HANGER_ORDER_MOVE_UP |||||
+| 停止|SET|CLOTHES_HANGER_ORDER_MOVE_STOP|||||
+| 下降|SET|CLOTHES_HANGER_ORDER_MOVE_DOWN |||||
+| 开灯|SET|CLOTHES_HANGER_ORDER_LIGHT_ON || | ||
+| 关灯|SET| CLOTHES_HANGER_ORDER_LIGHT_OFF ||| | |
+| 烘干开|SET| CLOTHES_HANGER_ORDER_HEAT_ON |||| |
+| 烘干关|SET| CLOTHES_HANGER_ORDER_HEAT_OFF| || ||      
+| 风干开|SET| CLOTHES_HANGER_ORDER_WIND_ON| || ||   
+| 风干关|SET| CLOTHES_HANGER_ORDER_WIND_OFF| || ||   
+| 消毒开|SET| CLOTHES_HANGER_ORDER_DESINFECTION_ON ||| ||   
+| 消毒关|SET| CLOTHES_HANGER_ORDER_DESINFECTION_OFF||| ||   
+
 空调设备 
 
 
@@ -892,7 +925,7 @@ JdSmartCtrlCmd　表示一个设备的指令操作，就是将这些设备的指
 |当前移动位置(0~100)<br>例如填写10, 表示移动10%, 0表示关闭,100表示打开|||||
 
         
-门磁、窗磁
+门磁、窗磁、水浸
 
 | value1| value2| value3| value4| groupData|
 |:----:| :----:|:----:|:----: |:----: |
@@ -922,17 +955,25 @@ JdSmartCtrlCmd　表示一个设备的指令操作，就是将这些设备的指
 |:----:| :----:|:----:|:----: |:----: |
 |填写传感器上报的测量值MeasuredValue |||     填写电量值   |
 
-门锁
+
+扫地机器人
 
 | value1| value2| value3| value4| groupData|
-|:----:| :----:|:----:|:----: |:----: |
-| 填写on/off属性值 <br>0:表示状态为<br>1:表示状态为关   |||     电量值 |
+|:----:| :----:|:----:|:----: |:---- |
+| 填写0表示打开 <br>填写-1表示关闭 |||| json 字符串，键值分别为工作状态值<br>JSONObject jobj = new JSONObject() <br>//工作于清扫模式 <br>jobj.put(JdSmartDeviceOrder.SWEEPER_MACHINE_STATUS, JdSmartDeviceOrder.SWEEPER_MACHINE_SWEEPER_MODE) <br>|
+
+智能晾衣架
+
+| value1| value2| value3| value4| groupData|
+|:----:| :----:|:----:|:----: |:---- |
+| 填写0表示打开 <br>填写-1表示关闭 |||| json 字符串，键值分别为移动状态，消毒状态，烘干状态，灯状态，风状态<br>JSONObject jobj = new JSONObject() <br>//移动状态 <br>jobj.put(JdSmartDeviceOrder.CLOTHES_HANGER_STATUS_MOVE, JdSmartDeviceOrder.CLOTHES_HANGER_ORDER_MOVE_STOP) <br>//消毒状态 <br>jobj.put(JdSmartDeviceOrder.CLOTHES_HANGER_STATUS_DESINFECTION, <br>JdSmartDeviceOrder.CLOTHES_HANGER_ORDER_DESINFECTION_OFF)<br>//烘干状态 <br>jobj.put(JdSmartDeviceOrder.CLOTHES_HANGER_STATUS_HEAT, <br>JdSmartDeviceOrder.CLOTHES_HANGER_ORDER_HEAT_OFF) <br>//灯状态 <br>jobj.put(JdSmartDeviceOrder.CLOTHES_HANGER_STATUS_LIGHT, <br>JdSmartDeviceOrder.CLOTHES_HANGER_ORDER_LIGHT_OFF)<br>//风状态 <br>jobj.put(JdSmartDeviceOrder.CLOTHES_HANGER_STATUS_WIND, <br>JdSmartDeviceOrder.CLOTHES_HANGER_ORDER_WIND_OFF)|
 
 空调设备
 
 | value1| value2| value3| value4| groupData|
 |:----:| :----:|:----:|:----: |:---- |
 | 填写0表示打开 <br>填写-1表示关闭 |||| json 字符串，键值分别为温度，空调模式，风速，风向<br>JSONObject jobj = new JSONObject() <br>//空调温度 <br>jobj.put(JdSmartDeviceOrder.TEMPERATURE, "26") <br>//空调模式 <br>jobj.put(JdSmartDeviceOrder.AIRCONDITION_MODE_TYPE, <br>JdSmartDeviceOrder.AIRCONDITION_MODE_COOL)<br>//空调风速 <br>jobj.put(JdSmartDeviceOrder.AIRCONDITION_WIND_RATE_TYPE, <br>JdSmartDeviceOrder.AIRCONDITION_WIND_RATE_AUTO) <br>//空调风向 <br>jobj.put(JdSmartDeviceOrder.AIRCONDITION_WIND_DIRECTION_TYPE, <br>JdSmartDeviceOrder.AIRCONDITION_WIND_DIRECTION__UP_DOWN)|
+
 
 ### 普通灯，开关，插座
 
@@ -1053,7 +1094,7 @@ cmd.setOrder(JdSmartDeviceOrder.MUTE)
  
 | 类别       | 参数   | 描述 |                                              
 |-----------|-----------|-----------|
-|门磁、窗磁 | value1 | 填写0表示关闭，不需要报警，填写1表示打开，需要报警
+|门磁、窗磁、水浸 | value1 | 填写0表示关闭，不需要报警，填写1表示打开，需要报警
 | |value3 | 填写0表示低电量，填写1表示正常电量
 | |value4| 填写电量值
 |烟感  |value1| 填写0表示不报警，填写1表示报警 
@@ -1071,8 +1112,6 @@ cmd.setOrder(JdSmartDeviceOrder.MUTE)
 | |value2| 填写湿度值 ,例如正常湿度值是30.212, 需要写成3021.2(乘以100)
 | |value4| 填写电量值（-1表示此设备不是电池供电的设备）
 |照度 |value1| 填写传感器上报的测量值Measured |value 
-| |value4| 填写电量值
-| 门锁 |value1| 填写on/off属性值，0表示状态为开，填1表示状态为关
 | |value4| 填写电量值
 
 
