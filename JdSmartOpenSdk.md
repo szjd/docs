@@ -849,6 +849,11 @@ JdSmartCtrlCmd　表示一个设备的指令操作，就是将这些设备的指
 | :----: | :----: | :----: | :----: | :----: | :----: | :----: |
 | 关闭警报  | MUTE     |        |        |        |        |        |
 
+猫眼和摄像头<br>
+当打开猫眼设备时，会发送intent, action为"com.judian.action.goto.cat.camera" <br>
+当打开摄像头设备时，会发送intent, action为"com.judian.action.goto.camera" <br>
+并且都带有扩展参数"camera_id" 包含设备的id信息<br>
+
 扫地机器人 
 
 
