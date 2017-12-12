@@ -3,7 +3,7 @@
 ![音乐](./pic/sound.jpg)
 
 ### JMV sdk(Jd_music_and_voice sdk)
-运行于背景音主机端，语音语义处理，音乐控制, 485控制
+运行于背景音主机端，语音语义处理，音乐控制, 485控制（请到网盘下载）
 
 ### JdPlay sdk（[JdPlay安卓移动端接入](JdPlayOpenSdkAndroid.md) [JdPlay苹果移动端接入](JdPlayOpenSdkIOS.md)）
 运行于Android手机端和苹果手机端,开放音乐资源及控制
@@ -17,11 +17,11 @@
 
 # 背景音乐主机控制智能家居
 ![智能家居](./pic/smart-home.jpg)
-### 对接协议
-网络对接协议，实现智能家居网关对接，控制智能家居
-
 ### [Smart sdk 智能家居控制](JdSmartOpenSdk.md)
 安卓sdk开发包， 运行于Android背景音乐主机端，方便对接局域网和云端网关
+
+### [对接协议](聚点互动科技有限公司对接协议.pdf)
+网络对接协议实现智能家居网关对接，控制智能家居
 
 ### [Smart 485及Smart udp](./files/485控制智能设备指南.pdf)
 内置于Android系统中, 通过界面配置智能设备与场景指令
