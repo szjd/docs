@@ -811,7 +811,7 @@ JdSmartCtrlCmd　表示一个设备的指令操作，就是将这些设备的指
 ## 设备命令与设备状态说明
 
 ### 设备命令
-开关类型设备(灯，开关，插座,电视，机顶盒)
+开关类型设备(灯，开关，插座,电视，机顶盒，机械手)
 
 | 操作   | order  |  value1| value2 | value3 | value4 | groupData |
 | :----: | :----: | :----: | :----: | :----: | :----: | :----: |
@@ -861,6 +861,11 @@ JdSmartCtrlCmd　表示一个设备的指令操作，就是将这些设备的指
 当打开猫眼设备时，会发送intent, action为"com.judian.action.goto.cat.camera" <br>
 当打开摄像头设备时，会发送intent, action为"com.judian.action.goto.camera" <br>
 并且都带有扩展参数"camera_id" 包含设备的id信息<br>
+
+| 操作   | order  |  value1| value2 | value3 | value4 | groupData |
+| :----: | :----: | :----: | :----: | :----: | :----: | :----: |
+| 打开   | ON     |        |        |        |        |        |
+| 关闭   | OFF    |        |        |        |        |        |
 
 扫地机器人 
 
