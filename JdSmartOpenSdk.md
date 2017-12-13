@@ -1127,7 +1127,7 @@ cmd.setOrder(JdSmartDeviceOrder.MUTE)
 | |value4| 填写电量值（-1表示此设备不是电池供电的设备）
 |照度 |value1| 填写传感器上报的测量值Measured value
 | |value4| 填写电量值
-|pm2.5 / 二氧化碳 |value1| 当前测量值 
+|PM2.5 / 二氧化碳 |value1| 当前测量值 
 |一氧化碳 |value1| 填写0表示关闭，不需要报警，填写1表示打开，需要报警
 
 
