@@ -115,7 +115,7 @@ public class JdSmartDevice {
     String deviceId2;
     String uid;
     String deviceName;
-    String zoneId; //楼层名， 强调说明，这个字段不是id，是楼层名
+    String zoneId; //楼层名， 强调说明，这个字段不是id，是楼层名，楼层名（只能是一楼，二楼类似这样的名字）
     String roomId; //房间名， 强调说明，这个字段不是id，是房间名
     ...
 ```
