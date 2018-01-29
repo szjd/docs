@@ -879,7 +879,22 @@ JdSmartCtrlCmd　表示一个设备的指令操作，就是将这些设备的指
 | 强力模式|SET|SWEEPER_MACHINE_FORCE_MODE|| | |  |
 | 静音模式|SET|SWEEPER_MACHINE_MUTE_MODE |    |  | |  |
 | 标准模式|SET|SWEEPER_MACHINE_NORMAL_MODE |   |  |  |  |
-| 回充模式|SET|SWEEPER_MACHINE_CHARGE_MODE |   |   | ||          
+| 回充模式|SET|SWEEPER_MACHINE_CHARGE_MODE |   |   | ||     
+
+空气净化器 
+
+
+| 操作   | order  |  value1| value2 | value3 | value4 | groupData |
+| :----: | :----: | :----: | :----: | :----: | :----: | :----: |
+| 打开   | OPEN   |        |        |   | |   |
+| 关闭   | CLOSE   |        |        |  |  |   |
+| 自动模式|SET|AIRPURIFIER_ORDER_MODE_AUTO|||||
+| 手动模式|SET|AIRPURIFIER_ORDER_MODE_MANUAL|| | |  |
+| 休眠模式|SET|AIRPURIFIER_ORDER_MODE_SLEEP |    |  | |  |
+| 设为高风|SET|AIRPURIFIER_ORDER_WIND_HIGHT |   |  |  |  |
+| 设为中风|SET|AIRPURIFIER_ORDER_WIND_MID |   |   | ||     
+| 设为低风|SET|AIRPURIFIER_ORDER_WIND_LOW |   |  |   |  |
+
          
 智能晾衣架
 
@@ -980,6 +995,12 @@ JdSmartCtrlCmd　表示一个设备的指令操作，就是将这些设备的指
 | value1| value2| value3| value4| groupData|
 |:----:| :----:|:----:|:----: |:---- |
 | 填写0表示打开 <br>填写-1表示关闭 |||| json 字符串，键值分别为工作状态值<br>JSONObject jobj = new JSONObject() <br>//工作于清扫模式 <br>jobj.put(JdSmartDeviceOrder.SWEEPER_MACHINE_STATUS, JdSmartDeviceOrder.SWEEPER_MACHINE_SWEEPER_MODE) <br>|
+
+空气净化器
+
+| value1| value2| value3| value4| groupData|
+|:----:| :----:|:----:|:----: |:---- |
+| 填写0表示打开 <br>填写-1表示关闭 |||| json 字符串，键值分别为工作模式，风速等级，PM25，温度，湿度，空气质量等级<br>JSONObject jobj = new JSONObject() <br>//工作模式 <br>jobj.put(JdSmartDeviceOrder.AIRPURIFIER_STATUS_MODE, JdSmartDeviceOrder.AIRPURIFIER_ORDER_MODE_AUTO) <br>//自动工作模式 <br>jobj.put(JdSmartDeviceOrder.AIRPURIFIER_STATUS_WIND, <br>JdSmartDeviceOrder.AIRPURIFIER_ORDER_WIND_MID)<br>//中风 <br>jobj.put(JdSmartDeviceOrder.AIRPURIFIER_STATUS_PM25,"50") <br>//PM2.5 50 <br>jobj.put(JdSmartDeviceOrder.AIRPURIFIER_STATUS_TEMP, "26")<br>//温度26度 <br>jobj.put(JdSmartDeviceOrder.AIRPURIFIER_STATUS_HUMIDITY,"60")//湿度60<br>jobj.put(JdSmartDeviceOrder.AIRPURIFIER_STATUS_AQI,"一级（优）")//空气质量等级 |
 
 智能晾衣架
 
