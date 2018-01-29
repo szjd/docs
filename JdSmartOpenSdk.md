@@ -833,9 +833,9 @@ JdSmartCtrlCmd　表示一个设备的指令操作，就是将这些设备的指
 | :----: | :----: | :----: | :----: | :----: | :----: | :----: |
 | 打开   | ON     |        |        |        |        |        |
 | 关闭   | OFF    |        |        |        |        |        |
-| 模式   | SET    | COLOR_LAMP_MODE_FLASH   |        |        | |        |
-| 模式   | SET    | COLOR_LAMP_MODE_RGB   |  rgb颜色值   |  亮度值      | 饱和度值 |        |
-| 模式   | SET    | COLOR_LAMP_MODE_CW   |   cw色温值     |   亮度值     | |        |
+| 闪光变色模式   | SET    | COLOR_LAMP_MODE_FLASH   |        |        | |        |
+| RGB模式   | SET    | COLOR_LAMP_MODE_RGB   |  rgb颜色值   |  亮度值      | 饱和度值 |        |
+| CW模式   | SET    | COLOR_LAMP_MODE_CW   |   cw色温值     |   亮度值     | |        |
 
 新风/热水器/风扇/投影仪
 
