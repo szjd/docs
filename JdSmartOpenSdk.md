@@ -826,7 +826,7 @@ JdSmartCtrlCmd　表示一个设备的指令操作，就是将这些设备的指
 | 关闭   | OFF    |        |        |        |        |        |
 | 移动   | MOVE_TO_LEVEL    |   |亮度值,最高值255  || |        |
 
-新风/空气净化器/地暖/热水器/风扇/投影仪
+新风/热水器/风扇/投影仪
 
 | 操作   | order  |  value1| value2 | value3 | value4 | groupData |
 | :----: | :----: | :----: | :----: | :----: | :----: | :----: |
@@ -895,6 +895,17 @@ JdSmartCtrlCmd　表示一个设备的指令操作，就是将这些设备的指
 | 设为中风|SET|AIRPURIFIER_ORDER_WIND_MID |   |   | ||     
 | 设为低风|SET|AIRPURIFIER_ORDER_WIND_LOW |   |  |   |  |
 
+地暖
+
+| 操作   | order  |  value1| value2 | value3 | value4 | groupData |
+| :----: | :----: | :----: | :----: | :----: | :----: | :----: |
+| 打开   | OPEN     |        |        |        |        |        |
+| 关闭   | CLOSE    |        |        |        |        |        |
+| 移动   | MOVE_TO_LEVEL| 移动比例,例如10, 表示移动10%      |  | |  | |
+| 自动模式|SET|FLOOR_HEATING_ORDER_MODE_AUTO|||||
+| 手动模式|SET|FLOOR_HEATING_ORDER_MODE_MANUAL|| | |  |
+| 休眠模式|SET|FLOOR_HEATING_ORDER_MODE_SLEEP |    |  | |  |
+
          
 智能晾衣架
 
@@ -932,7 +943,7 @@ JdSmartCtrlCmd　表示一个设备的指令操作，就是将这些设备的指
          
 
 ### 设备状态
-开关类型设备(灯，开关，插座,电视，机顶盒，新风，空气净化器，地暖，热水器，风扇，投影仪)
+开关类型设备(灯，开关，插座,电视，机顶盒，新风，热水器，风扇，投影仪)
 
 | value1| value2| value3| value4| groupData|
 |:----:| :----:|:----:|:----: |:----: |
@@ -1001,6 +1012,12 @@ JdSmartCtrlCmd　表示一个设备的指令操作，就是将这些设备的指
 | value1| value2| value3| value4| groupData|
 |:----:| :----:|:----:|:----: |:---- |
 | 填写0表示打开 <br>填写-1表示关闭 |||| json 字符串，键值分别为工作模式，风速等级，PM25，温度，湿度，空气质量等级<br>JSONObject jobj = new JSONObject() <br>//工作模式 <br>jobj.put(JdSmartDeviceOrder.AIRPURIFIER_STATUS_MODE, JdSmartDeviceOrder.AIRPURIFIER_ORDER_MODE_AUTO) <br>//自动工作模式 <br>jobj.put(JdSmartDeviceOrder.AIRPURIFIER_STATUS_WIND, <br>JdSmartDeviceOrder.AIRPURIFIER_ORDER_WIND_MID)<br>//中风 <br>jobj.put(JdSmartDeviceOrder.AIRPURIFIER_STATUS_PM25,"50") <br>//PM2.5 50 <br>jobj.put(JdSmartDeviceOrder.AIRPURIFIER_STATUS_TEMP, "26")<br>//温度26度 <br>jobj.put(JdSmartDeviceOrder.AIRPURIFIER_STATUS_HUMIDITY,"60")//湿度60<br>jobj.put(JdSmartDeviceOrder.AIRPURIFIER_STATUS_AQI,"一级（优）")//空气质量等级 |
+
+地暖
+
+| value1| value2| value3| value4| groupData|
+|:----:| :----:|:----:|:----: |:---- |
+| 填写0表示打开 <br>填写-1表示关闭 |||| json 字符串，键值分别为工作模式，当前温度<br>JSONObject jobj = new JSONObject() <br>jobj.put(JdSmartDeviceOrder.FLOOR_HEATING_STATUS_MODE, JdSmartDeviceOrder.FLOOR_HEATING_ORDER_MODE_AUTO) //工作于自动模式 <br>jobj.put(JdSmartDeviceOrder.FLOOR_HEATING_STATUS_TEMP, "26")//当前温度26 <br>|
 
 智能晾衣架
 
