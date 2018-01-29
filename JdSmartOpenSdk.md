@@ -32,7 +32,7 @@
 ### JdSmart
 
 JdSmart是声控智能家居系统，可用于控制智能家居主机及设备<br>
-* 可控设备：普通灯，调光灯（可调亮度），开关，插座，窗帘(分为精确获取移动位置和不能获得移动位置两种)，空调(红外类型和非红外类型)，空气净化器，开窗器，温控器，红外转发器，电视（红外类型），机顶盒（红外类型），多功能控制盒，猫眼，摄像头，投影仪，抽风机，风扇，机械手，新风，地暖，晾衣架，扫地机<br>
+* 可控设备：普通灯，调光灯（可调亮度），RGB灯，色温CW灯， RGB+CW灯，开关，插座，窗帘(分为精确获取移动位置和不能获得移动位置两种)，空调(红外类型和非红外类型)，空气净化器，开窗器，温控器，红外转发器，电视（红外类型），机顶盒（红外类型），多功能控制盒，猫眼，摄像头，投影仪，抽风机，风扇，机械手，新风，地暖，晾衣架，扫地机<br>
 * 传感器：温度传感器，湿度传感器，温度湿度一体传感器，紧急按钮，红外入侵检测传感器，门窗磁传感器，水浸传感器，可燃气体传感器，CO监测器，CO2监测器，PM2.5，烟雾传感器
 
 ### JdSmart Open Sdk
@@ -121,7 +121,7 @@ public class JdSmartDevice {
 ```
 6. 一键导入功能的管理界面有个“重新导入”，它会首先调用CustomHost.java 中的refeshDevice()接口， 再调用getAlldevices()接口
 7. ~~notifyDevicesChange~~ 回调无效
-
+8. 一些设备类型有子类型，像空调，多功能控制盒，灯等，注意区分
 
 ## 主要类介绍
 
@@ -826,6 +826,17 @@ JdSmartCtrlCmd　表示一个设备的指令操作，就是将这些设备的指
 | 关闭   | OFF    |        |        |        |        |        |
 | 移动   | MOVE_TO_LEVEL    |   |亮度值,最高值255  || |        |
 
+
+调色灯（RGB灯，色温CW灯， RGB+CW灯）
+
+| 操作   | order  |  value1| value2 | value3 | value4 | groupData |
+| :----: | :----: | :----: | :----: | :----: | :----: | :----: |
+| 打开   | ON     |        |        |        |        |        |
+| 关闭   | OFF    |        |        |        |        |        |
+| 模式   | SET    | COLOR_LAMP_MODE_FLASH   |        |        | |        |
+| 模式   | SET    | COLOR_LAMP_MODE_RGB   |  rgb颜色值   |  亮度值      | 饱和度值 |        |
+| 模式   | SET    | COLOR_LAMP_MODE_CW   |   cw色温值     |   亮度值     | |        |
+
 新风/热水器/风扇/投影仪
 
 | 操作   | order  |  value1| value2 | value3 | value4 | groupData |
@@ -955,6 +966,12 @@ JdSmartCtrlCmd　表示一个设备的指令操作，就是将这些设备的指
 | value1| value2| value3| value4| groupData|
 |:----:| :----:|:----:|:----: |:----: |
 |0: 表示打开 <br>-1:表示关闭|填写亮度值,最高值255||||
+
+调色灯（RGB灯，色温CW灯， RGB+CW灯）
+
+| value1| value2| value3| value4| groupData|
+|:----:| :----:|:----:|:----: |:---- |
+| 填写0表示打开 <br>填写-1表示关闭 |||| json 字符串，依据不同模式类型，键值各不相同。<br>JSONObject jobj = new JSONObject() <br>jobj.put(JdSmartDeviceOrder.COLOR_LAMP_MODE,JdSmartDeviceOrder.COLOR_LAMP_MODE_RGB)//RGB模式<br>jobj.put(JdSmartDeviceOrder.COLOR_LAMP_RGB_VALUE, "#0a0b0c")//颜色值为#0a0b0c<br>jobj.put(JdSmartDeviceOrder.COLOR_LAMP_RGB_BRIGHT, "250") //亮度为250<br>jobj.put(JdSmartDeviceOrder.COLOR_LAMP_RGB_SATURATION, "10") //饱和度为10<br><br>JSONObject jobj = new JSONObject() <br>jobj.put(JdSmartDeviceOrder.COLOR_LAMP_MODE,JdSmartDeviceOrder.COLOR_LAMP_MODE_CW)//cw模式<br>jobj.put(JdSmartDeviceOrder.COLOR_LAMP_CW_VALUE, "50")//色值为50<br>jobj.put(JdSmartDeviceOrder.COLOR_LAMP_CW_BRIGHT, "250") //亮度为250<br><br>JSONObject jobj = new JSONObject() <br>jobj.put(JdSmartDeviceOrder.COLOR_LAMP_MODE,JdSmartDeviceOrder.COLOR_LAMP_MODE_FLASH)//闪光自动变色模式|
 
 多功能控制盒/无进度窗帘
 
