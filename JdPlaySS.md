@@ -175,7 +175,48 @@ i1,s0: [可选]，如果需要反馈消息
 > telnet ip地址 8000
 
 2. 根据如上"Client端流程",在telnet终端通过命令测试交互
-
+```c
+=> telnet 192.168.1.154 8000
+Trying 192.168.1.154...
+Connected to 192.168.1.154.
+Escape character is '^]'.
+{"type":1,"i0":1,"i1":240}                
+{"i0":1,"i1":0,"s0":"OK","seq":0,"type":2}
+{"type":3,"i0":101,"seq":1}
+{"i0":101,"i1":0,"seq":1,"type":4}
+{"i0":150,"i1":0,"s0":"{\"playState\":0,\"singer\":\"Brooke White\",\"songId\":\"1552954\",\"songTitle\":\"Let It Be\",\"songUrl\":\"http://mr3.doubanio.com/87b89194e8858151bf1375eb17c96878/0/fm/song/p1552954_128k.mp3\",\"volume\":40}","seq":0,"type":3}
+{"i0":151,"i1":2,"seq":0,"type":3}
+{"type":3,"i0":102,"seq":1}
+{"i0":151,"i1":0,"seq":0,"type":3}
+{"i0":102,"i1":0,"seq":1,"type":4}
+```
+发送”连接请求“命令 
+```c
+{"type":1,"i0":1,"i1":240}
+```
+背景音系统返回 
+```c
+{"i0":1,"i1":0,"s0":"OK","seq":0,"type":2}
+```
+发送”播放“命令 
+```c
+{"type":3,"i0":101,"seq":1} 
+```
+背景音系统返回 
+```c
+{"i0":101,"i1":0,"seq":1,"type":4}
+{"i0":150,"i1":0,"s0":"{\"playState\":0,\"singer\":\"Brooke White\",\"songId\":\"1552954\",\"songTitle\":\"Let It Be\",\"songUrl\":\"http://mr3.doubanio.com/87b89194e8858151bf1375eb17c96878/0/fm/song/p1552954_128k.mp3\",\"volume\":40}","seq":0,"type":3}
+{"i0":151,"i1":2,"seq":0,"type":3}
+```
+发送”暂停“命令 
+```c 
+{"type":3,"i0":102,"seq":1}
+```
+背景音系统返回
+```c
+{"i0":151,"i1":0,"seq":0,"type":3}
+{"i0":102,"i1":0,"seq":1,"type":4}
+```
 ## 参考
 
 ### 常量定义
