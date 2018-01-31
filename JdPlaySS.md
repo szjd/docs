@@ -108,13 +108,17 @@ i0: [必选] cmd命令，支持的命令及参数设置如下。
 |114|MEDIA_PLAY_LOCAL_ONE_SONG | C->S| 播放本地单首歌曲，单曲不循环 | s0:仅一个简单音乐元数据，非数组  | 无参数　|
 |115|MEDIA_GET_PLAY_MODE | C->S| 获取当前播放模式 | 无  | <br> i1: 播放模式 <br> 0:重复所有<br>1:单曲循环<br> 2:随机播放<br>　|
 |116|MEDIA_PLAY_TTS | C->S| 用语音播放TTS文本 | s0:TTS文本  | 无参数　|
+|118|MEDIA_PLAY_HINT_PATH | C->S| 播放提示音 | s0:完整的提示音路径  | 无参数　|
+|119|MEDIA_GET_AUDIO_SOURCE | C->S| 获取当前的音源 | 无  | s0: 当前的音源　|
+|120|MEDIA_SET_AUDIO_SOURCE | C->S| 切换音源 | s0:目标音源  | 无参数　|
 |150|MEDIA_REPORT_METADATA | S->C| 反馈元数据  | s0:参考元数据  | Client无需回复  |
 |151|MEDIA_REPORT_PlAY_STATE | S->C| 反馈播放状态  | i1: 播放状态 <br> 0:暂停<br>1:正在播放<br> 2:缓冲结束<br> | Client无需回复  |
 |152|MEDIA_REPORT_VOLUME | S->C| 反馈音量  | i1:音量值(0~100)  | Client无需回复  |
 |153|MEDIA_REPORT_PLAY_MODE | S->C| 反馈当前的播放模式 | i1: 播放模式 <br> 0:重复所有<br>1:单曲循环<br> 2:随机播放<br>  | Client无需回复  |
 |200|DEVICE_POWER_ON | C->S| 开机 | 无  | 无参数  |
 |201|DEVICE_POWER_OFF | C->S| 关机 | 无  | 无参数  |
-
+|202|DEVICE_POWER_REBOOT | C->S| 重启 | 无  | 无参数  |
+|203|DEVICE_GET_POWER_STATUS | C->S| 获取开机状态 | 无  | i1: 0表示关机，1表示开机  |
 
 ##### 元数据
 ```json
@@ -207,6 +211,9 @@ public class JSSSConstant {
     public static final int MEDIA_PLAY_ONCE_LOCAL_SONG = 114;
     public static final int MEDIA_GET_PLAY_MODE = 115;
     public static final int MEDIA_PLAY_TTS = 116;
+    public static final int MEDIA_PLAY_HINT_PATH = 118;
+    public static final int MEDIA_GET_AUDIO_SOURCE = 119;
+    public static final int MEDIA_SET_AUDIO_SOURCE = 120;
 
     //JSSS协议媒体状态反馈命令
     public static final int MEDIA_REPORT_METADATA = 150;
@@ -217,7 +224,8 @@ public class JSSSConstant {
     //JSSS协议设备控制命令
     public static final int DEVICE_POWER_ON = 200;
     public static final int DEVICE_POWER_OFF = 201;
-    
+    public static final int DEVICE_POWER_REBOOT = 202;
+    public static final int DEVICE_GET_POWER_STATUS = 203;
     //JSSS 状态码
     public static final int FAIL = -1;
     public static final int OK = 0;
