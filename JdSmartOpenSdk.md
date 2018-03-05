@@ -97,15 +97,6 @@ controlDevice(JdSmartCtrlCmd cmd, JdbaseCallback callback) 接口中需要将JdS
 timer.schedule(new UpgradeTask(), 1000, 1000 * 60 * 30); //30min
 
 ```
-- 修改CustomSmartService.java 中， 如下部分
-``` java
-    class UpgradeTask extends java.util.TimerTask{
-        @Override
-        public void run() {
-            Log.d(TAG, "UpgradeTask is runing");
-            //Beta.checkUpgrade();    将此注释取消，修改为 Beta.checkUpgrade(false, true);
-
-```
 
 5. 为了支持设备一键导入功能， 需要填写zoonID, roomId值， 对应函数为setZoneId()，setRoomId()
 ``` java
@@ -949,8 +940,8 @@ JdSmartCtrlCmd　表示一个设备的指令操作，就是将这些设备的指
 | 切换到指定工作模式|SET|AIRCONDITION_<br>MODE_TYPE|工作模式值,例如，  <br>AIRCONDITION_<br>MODE_COOL||||
 | 切换到指定风速模式|SET|AIRCONDITION_<br>WIND_RATE_TYPE |风速模式，例如，  <br>AIRCONDITION_<br>WIND_RATE<br>_MIDDLE| | |  |
 | 切换到指定扫风模式|SET|AIRCONDITION_<br>WIND_DIRECTION<br>_TYPE |扫风模式，例如，  <br>AIRCONDITION_WIND<br>_DIRECTION_<br>LEFT_RIGHT| | |  |
-| 直接切换到下一个工作模式| NEXT   | AIRCONDITION_<br>WIND_RATE_TYPE |        |        |        |        |
-| 直接切换到下一个风速模式| NEXT   | AIRCONDITION_<br>MODE_TYPE |        |        |        |        |
+| 直接切换到下一个工作模式| NEXT   | AIRCONDITION_<br>MODE_TYPE |        |        |        |        |
+| 直接切换到下一个风速模式| NEXT   | AIRCONDITION_<br>WIND_RATE_TYPE |        |        |        |        |
 | 直接切换到下一个扫风模式| NEXT   | AIRCONDITION_<br>WIND_DIRECTION<br>_TYPE |      |   | ||          
          
 
