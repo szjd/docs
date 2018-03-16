@@ -1,5 +1,5 @@
 
-# 背景音乐主机控制智能家居
+# 一、背景音乐主机控制智能家居
 ![智能家居](./pic/smart-home.jpg)
 ### [Smart sdk 智能家居控制](JdSmartOpenSdk.md)
 安卓sdk开发包， 运行于Android背景音乐主机端，方便对接局域网和云端网关
@@ -11,7 +11,7 @@
 内置于Android系统中, 通过界面配置智能设备与场景指令
 
 
-# 控制背景音乐主机
+# 二、控制背景音乐主机
 ![音乐](./pic/sound.jpg)
 
 ### JMV sdk(Jd_music_and_voice sdk)
