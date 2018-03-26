@@ -18,3 +18,9 @@
         }
     }
 ```
+
+## 获取设备名称
+设备名称即是手机端连接设备时，呈现的名称，可以使用如下属性获取
+```
+SystemProperties.get("persist.sys.jd.name") 
+```
