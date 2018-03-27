@@ -290,3 +290,7 @@ A: 请检查是否在KeepAlive时间内发送过PING或者PUBLISH命令
 
 Q: 为什么Client发布消息不成功<br>
 A: 请检查seq字段是否设置为非０值，并主动递增
+
+Q: Window 使用 PuTTY 进行测试<br>
+A: ![配置连接ip和端口](./pic/PuTTY_11.png)
+![发送连接请求](./pic/PuTTY_22.png)
