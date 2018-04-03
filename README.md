@@ -17,7 +17,7 @@
 ### JMV sdk(Jd_music_and_voice sdk)
 运行于背景音主机端，语音语义处理，音乐控制, 485控制（请到网盘下载）
 
-### JdPlay sdk（[JdPlay安卓移动端接入](JdPlayOpenSdkAndroid.md) [JdPlay苹果移动端接入](JdPlayOpenSdkIOS.md)）
+### JdPlay sdk（[JdPlay安卓移动端接入](JdPlayOpenSdkAndroid.md) [JdPlay苹果移动端接入](./files/iOS JDPlay SDK 环境搭建.pdf)）
 运行于Android手机端和苹果手机端,开放音乐资源及控制
 
 ### [JSSS协议](JdPlaySS.md)
