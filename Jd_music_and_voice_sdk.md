@@ -193,149 +193,149 @@ void onReceiverData(String var1)
 ##### 主要方法
 ``` java
 void queryMediaInfo()
- 查询当前歌曲状态
+查询当前歌曲状态
 
 void queryPlayList(final JdCallBack var1)
- 获取播放列表
+获取播放列表
 参数
 * var1 获取播放列表成功与失败的回调
 
 void clearPlayList(final JdCallBack var1)
- 清空播放列表
+清空播放列表
 参数
 * var1 清空播放列表成功与失败的回调
 
 void deletePlayListByPos(int var1, final JdCallBack var2)
- 删除播放列表指定位置的歌曲
+删除播放列表指定位置的歌曲
 参数
 * var1 删除播放列表指定位置
 * var2 删除播放列表指定位置的歌曲成功与失败的回调
 
 void editPlaylist(final String var1, final JdCallBack var2)
-* 编辑播放列表歌曲
+编辑播放列表歌曲
 参数
 * var1 编辑播放列表歌曲指定位置
 * var2 编辑播放列表歌曲成功与失败的回调
 
 void refreshListAndPos(JdPlayList var1)
-* 刷新播放列表和播放位置
+刷新播放列表和播放位置
 参数
 * var1 播放列表
 
 void clearMediaData()
-* 清空数据
+清空数据
 
 void updatePlaylistPosition(EglSong var1)
-* 更新播放位置
+更新播放位置
 参数
 * var1 歌曲
 
 void togglePlay()
-* 播放状态切换
+播放状态切换
 
 void play()
-* 播放
+播放
 
 void pause()
-* 暂停
+暂停
 
 void next()
-* 下一首
+下一首
 
 void prev()
-* 上一首
+上一首
 
 void switchListMode()
-* 切换播放mode
+切换播放mode
 
 String queryListMode()
 * 查询播放mode
 
 void seekTo(long var1)
-* 改变播放进度
+改变播放进度
 参数
 * var1 进度值
 
 void release()
-* 释放资源
+释放资源
 
 void playLocalSceneMusic(int var1, int var2)
-* 根据位置编号播放
+根据位置编号播放
 参数
 * var1 编号位置
 * var2 歌曲位置
 
 void playLocalSceneMusic(String var1, String var2)
-* 根据文件标识码播放 md5
+根据文件标识码播放 md5
 参数
 * var1 文件标识码
 * var2 歌曲md5
 
 void playSceneMusic(List<JDMusicChannel> var1, String var2)
-* 播放场景推荐列表指定歌曲
+播放场景推荐列表指定歌曲
 参数
 * var1 场景推荐列表集合
 * var2 场景id
 
 void playSceneMusic(JDMusicChannel var1)
-* 播放推荐歌单
+播放推荐歌单
 参数
 * var1 推荐歌单
 
 void playMusic(EglSong var1)
-* 播放单首音乐
+播放单首音乐
 参数
 * var1 歌曲
 
 void playMusicByIndex(List<EglSong> var1, int var2)
-* 播放播放列表指定位置歌曲
+播放播放列表指定位置歌曲
 参数
 * var1 播放列表
 * var2 播放列表指定位置
 
 void playOnlineMusic(BCategory var1)
-* 播放在线音乐
+播放在线音乐
 参数
 * var1 播放歌曲类型
 
 void playSongByIndex(int var1)
-* 播放指定位置歌曲
+播放指定位置歌曲
 参数
 * var1 指定位置
 
 void playTTS(String var1, boolean var2)  此方法已过时
-* 播放TTS 
+播放TTS 
 参数
 * var1 播放文本
 * var2 是否打断当前播放的TTS
 
 void playTTS(String var1) 此方法已过时
-* 播放TTS 
+播放TTS 
 参数
 * var1 播放文本
 
 void playTTS(TTS var1)
-* 播放TTS
+播放TTS
 参数
 * var1 播放TTS 类型数据
 
 void send485Data(String var1)
-* 发送485控制指令
+发送485控制指令
 参数
 * var1 485控制指令
 
 void set485ReceiverListener(I485DataCallBack callBack) 
-* 设置485数据接受回调
+设置485数据接受回调
 参数
 * callBack I485DataCallBack  回调接口
 
 void enableSmartDeviceGrammar(boolean var1)
-* 禁用本地语法
+禁用本地语法
 参数
 * var1是否禁用
 
 void switchDeviceMode(String var1)
-* 切换模式接口
+切换模式接口
 参数
 * var1模式
 ``` 
@@ -361,10 +361,10 @@ void onQueryLocalSceneMusic(List<LocalSceneMusic> var1)
 ##### 主要方法
 ``` java
 void querySdCardSongs()
-* 查询sdcard歌曲
+查询sdcard歌曲
 
 void queryLocalSceneMusic()
-* 查询本地场景歌曲
+查询本地场景歌曲
 ``` 
 
 #### JdVoicePresenter
@@ -413,7 +413,7 @@ void onVoiceState(int var1)
 ##### 主要方法
 ``` java
 void setIVoiceCallBack(IVoiceCallBack callBack)
-* 设置语音处理回调
+设置语音处理回调
 参数
 * callBack 回调方法
 ``` 
