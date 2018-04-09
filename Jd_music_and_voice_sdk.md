@@ -188,8 +188,10 @@ void onPlaylistPosition(int var1)
 void onReceiverData(String var1)
 参数
 * var1 485收到的数据
+``` 
 
 ##### 主要方法
+``` java
 void queryMediaInfo()
  查询当前歌曲状态
 
@@ -354,8 +356,10 @@ void onGetSdSongsSuccess(List<EglSong> var1)
 void onQueryLocalSceneMusic(List<LocalSceneMusic> var1)
 参数
 * var1 本地场景歌曲集合
+``` 
 
 ##### 主要方法
+``` java
 void querySdCardSongs()
 * 查询sdcard歌曲
 
