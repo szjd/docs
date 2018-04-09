@@ -13,8 +13,7 @@
 
 # 二、控制背景音乐主机
 ![音乐](./pic/sound.jpg)
-
-### JMV sdk(Jd_music_and_voice sdk)
+### JMV sdk([Jd_music_and_voice sdk](Jd_music_and_voice_sdk.md))
 运行于背景音主机端，语音语义处理，音乐控制, 485控制（请到网盘下载）
 
 ### JdPlay sdk（[JdPlay安卓移动端接入](JdPlayOpenSdkAndroid.md)、 [JdPlay苹果移动端接入](./files/JDPlaySDKIOS环境搭建.pdf)）
