@@ -21,7 +21,7 @@
 | V1.1.08 | 20170504 | 支持Bugly升级 | Luke |
 | V1.1.09 | 20170515 | 更新混淆文件proguard-rules.pro<br>支持raw语音，直接将用户语音输出到接口函数 | Luke |
 | V1.2.13 | 20170810 | 支持播放TTS文本内容, playTTS(String tts)<br>新增一些设备类型 <br>修改buggly升级 <br>setFilterVoiceMode 和setVoiceTex被禁用 | Luke |
-| V1.2.20 | 20171109 | 重新导入时调用refeshDevice()接口<br>增加 ~~notifyDevicesChange()通知上层调用getAlldevice接口~~<br>增加风扇类型 <br>空调增加左右扫风，上下扫风，除湿模式 | Luke |
+| V1.2.20 | 20171109 | 重新导入时调用refeshDevice()接口<br>增加 notifyDevicesChange()通知上层调用getAlldevice接口<br>增加风扇类型 <br>空调增加左右扫风，上下扫风，除湿模式 | Luke |
 | V1.2.21 | 20171118 | <br>增加摄像头,投影仪,猫眼,晾衣架,扫地机器人| Luke |
 | V1.5.08 | 20180129 | <br>增加彩灯类型<br>扩充空气净化器和地暖类型指令<br>更多信息请看sdk中changelog | Luke |
 |        |          |                  |        |
@@ -110,7 +110,7 @@ public class JdSmartDevice {
     ...
 ```
 6. 一键导入功能的管理界面有个“重新导入”，它会首先调用CustomHost.java 中的refeshDevice()接口， 再调用getAlldevices()接口
-7. ~~notifyDevicesChange~~ 回调无效
+7. notifyDevicesChange 回调,如果设备初始化时间比较长，可以等待设备初始化完成后，调用这个接口，上层将会再次调用getAlldevices()接口去获取新设备
 8. 一些设备类型有子类型，像空调，多功能控制盒，灯等，注意区分
 
 ## 主要类介绍
