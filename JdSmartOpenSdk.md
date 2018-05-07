@@ -832,8 +832,8 @@ JdSmartCtrlCmd　表示一个设备的指令操作，就是将这些设备的指
 
 | 操作   | order  |  value1| value2 | value3 | value4 | groupData |
 | :----: | :----: | :----: | :----: | :----: | :----: | :----: |
-| 打开   | ON     |        |        |        |        |        |
-| 关闭   | OFF    |        |        |        |        |        |
+| 打开   | OPEN     |        |        |        |        |        |
+| 关闭   | CLOSE    |        |        |        |        |        |
 | 开始摇头   | SET    | FAN_START_PIVOT   |        |        | |        |
 | 停止摇头   | SET    | FAN_STOP_PIVOT   |        |        | |        |
 
