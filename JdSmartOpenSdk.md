@@ -111,7 +111,8 @@ public class JdSmartDevice {
 ```
 6. 一键导入功能的管理界面有个“重新导入”，它会首先调用CustomHost.java 中的refeshDevice()接口， 再调用getAlldevices()接口
 7. notifyDevicesChange 回调,如果设备初始化时间比较长，可以等待设备初始化完成后，调用这个接口，上层将会再次调用getAlldevices()接口去获取新设备
-8. 一些设备类型有子类型，像空调，多功能控制盒，灯等，注意区分
+8. notifySceneChange 回调, 如果场景准备好，或场景名有变化，调用这个接口
+9. 一些设备类型有子类型，像空调，多功能控制盒，灯等，注意区分
 
 ## 主要类介绍
 
