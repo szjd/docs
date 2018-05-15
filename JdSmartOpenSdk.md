@@ -806,18 +806,6 @@ JdSmartCtrlCmd　表示一个设备的指令操作，就是将这些设备的指
     void registerDeviceChange(JdbaseCallback callback);
 ```
 
-### void playSceneMusicFromSys(String sceneNo)
-
-根据场景id，播放相应的场景音乐
-
-``` java
-    /**
-     * 根据场景id，播放相应的场景音乐
-     * @param sceneNo  场景id
-     */
-    public void playSceneMusicFromSys(String sceneNo);
-
-```
 
 
 ## 设备命令与设备状态说明
