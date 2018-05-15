@@ -24,3 +24,12 @@
 ```
 SystemProperties.get("persist.sys.jd.name") 
 ```
+## 获取设备UUID
+设备名称即是手机端连接设备时，呈现的名称，在背景音乐主机端可以使用如下属性获取
+```
+AccountManager accountManager = (AccountManager) getSystemService(ACCOUNT_SERVICE);
+Account[] accounts = accountManager.getAccountsByType("com.judian.jdmediarender.account");
+for(Account a : accounts){
+    Log.d(TAG, "name=" + a.name + ",type=" + a.name);  
+}
+```
