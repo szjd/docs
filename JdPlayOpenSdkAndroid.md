@@ -78,6 +78,7 @@ dependencies {
 3.  添加依赖库jdplay-x.x.xx.aar和fast-json-judian.jar（为避免fastjson库版本冲突，我司修改了fastjson原生包名）, 参考 **添加包引用**
 4.  修改资源文件以适配你的APP主题风格
 5.  在Application中初始化，参考App.java
+6.  如果是运行在Android 6.0系统中，需要请求”存储“权限 
 
 ``` xml
 JdPlayManager.getInstance().initialize(this);
