@@ -296,6 +296,7 @@ IJdSmartHost.java接口
 场景音乐相关
 
 ``` java
+    使用场景是这样的， 手机端执行场景时，背景音需要播放相对应的场景音乐。 如果背景音乐可以收到手机场景执行的通知，可以在对接包中，调用此接口来播放场景号对应的场景音乐
     void playSceneMusicFromSys(String sceneNo)      根据场景id，播放相应的场景音乐
     
 ```
