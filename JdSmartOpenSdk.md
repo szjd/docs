@@ -844,8 +844,8 @@ JdSmartCtrlCmd　表示一个设备的指令操作，就是将这些设备的指
 | :----: | :----: | :----: | :----: | :----: | :----: | :----: |
 | 打开   | OPEN     |        |        |        |        |        |
 | 关闭   | CLOSE    |        |        |        |        |        |
-| 开始摇头   | SET    | FAN_START_PIVOT   |        |        | |        |
-| 停止摇头   | SET    | FAN_STOP_PIVOT   |        |        | |        |
+| 开始摇头   | SET    |    | FAN_START_PIVOT       |        | |        |
+| 停止摇头   | SET    |    | FAN_STOP_PIVOT       |        | |        |
 
 新风/热水器/投影仪
 
@@ -964,12 +964,16 @@ JdSmartCtrlCmd　表示一个设备的指令操作，就是将这些设备的指
          
 
 ### 设备状态
-开关类型设备(灯，开关，插座,电视，机顶盒，新风，热水器，风扇，投影仪)
+开关类型设备(灯，开关，插座,电视，机顶盒，新风，热水器，投影仪)
 
 | value1| value2| value3| value4| groupData|
 |:----:| :----:|:----:|:----: |:----: |
 |0: 表示打开 <br>-1:表示关闭|||||
 
+风扇
+| value1| value2| value3| value4| groupData|
+|:----:| :----:|:----:|:----: |:----: |
+|0: 表示打开 <br>-1:表示关闭|填写开始摇头/停止摇头||||
 
 调光灯
 
@@ -1072,6 +1076,25 @@ cmd.setOrder(JdSmartDeviceOrder.ON),  value1不用设置
 ``` java
 cmd.value1("0") //表示状态是开
 ```
+
+### 风扇
+
+命令
+
+``` java
+cmd.setOrder(JdSmartDeviceOrder.OPEN) //OPEN开,CLOSE关
+```
+
+``` java
+cmd.setOrder(JdSmartDeviceOrder.SET) //设置开始摇头FAN_START_PIVOT或停止摇头FAN_STOP_PIVOT
+cmd.setValue2("FAN_START_PIVOT") 
+```
+
+状态
+
+``` java
+cmd.value1("0")  // value1表示开关状态 "0"表示状态打开,否则为关闭状态
+cmd.value2("FAN_START_PIVOT") // value2表示是否摇头
 
 ### 调光灯
 
