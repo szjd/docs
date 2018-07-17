@@ -1095,6 +1095,7 @@ cmd.setValue2("FAN_START_PIVOT")
 ``` java
 cmd.value1("0")  // value1表示开关状态 "0"表示状态打开,否则为关闭状态
 cmd.value2("FAN_START_PIVOT") // value2表示是否摇头
+```
 
 ### 调光灯
 
