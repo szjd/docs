@@ -22,7 +22,7 @@ SDK包含以下功能模块
 公共接入配置
 ------------
 ### 下载demo 
-百度网盘下载链接:https://pan.baidu.com/s/1mhQr86W 密码: nxkj     <br>
+百度网盘下载链接: 链接: https://pan.baidu.com/s/179xcJ6HirWoDVofAcsJN5A 密码: 3vix    <br>
 路径：JdRelease/jd_music_and_voice_open_sdk <br>
 demo需安装并运行于背景音乐主机中
 
