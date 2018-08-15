@@ -24,6 +24,7 @@
 | V1.2.20 | 20171109 | 重新导入时调用refeshDevice()接口<br>增加 notifyDevicesChange()通知上层调用getAlldevice接口<br>增加风扇类型 <br>空调增加左右扫风，上下扫风，除湿模式 | Luke |
 | V1.2.21 | 20171118 | <br>增加摄像头,投影仪,猫眼,晾衣架,扫地机器人| Luke |
 | V1.5.08 | 20180129 | <br>增加彩灯类型<br>扩充空气净化器和地暖类型指令<br>更多信息请看sdk中changelog | Luke |
+| V1.5.11 | 20180815 | <br>增加一些设备类型<br>更新android buildtool版本<br>更多信息请看sdk中changelog | Luke |
 |        |          |                  |        |
 
 ## 概述
