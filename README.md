@@ -21,7 +21,7 @@
 ### JdPlay sdk（[JdPlay安卓移动端接入](JdPlayOpenSdkAndroid.md)、 [JdPlay苹果移动端接入](./files/JDPlaySDKIOS环境搭建.pdf)）
 运行于Android手机端和苹果手机端,开放音乐资源及控制
 
-### [JSSS协议](JdPlaySS.md)
+### [JdPlaySS协议(原JSSS)](JdPlaySS.md)
 使用网络协议控制背景音主机，支持局域网发现和控制背景音主机，开放音乐资源及控制
 
 ### [485协议及UDP协议](./JdRS485.md)

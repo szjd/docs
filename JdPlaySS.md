@@ -225,7 +225,7 @@ Escape character is '^]'.
 public class JSSSConstant {
     public static final int VERSION = 1;
 
-    //JSSS协议命令
+    //JSSS协议命令,type字段
     public static final int CONNECT = 1;
     public static final int CONNACK = 2;
     public static final int PUBLISH = 3;
@@ -295,3 +295,6 @@ Q: Window 使用 PuTTY 进行测试<br>
 A: ![配置连接ip和端口](./pic/PuTTY_11.png) <br>
 发送连接请求{"type":1,"i0":1,"i1":240}<br>
 ![发送连接请求](./pic/PuTTY_22.png)
+
+Q: 获取当前播放的歌曲信息策略<br>
+A: Socket连接上之后，只需要发送一次命令 MEDIA_GET_METADATA 获取当前播放的歌曲信息，只要Socket连接一直不断，以后都通过MEDIA_REPORT_PlAY_STATE主动反馈歌曲信息即可。
