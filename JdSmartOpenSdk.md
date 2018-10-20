@@ -923,7 +923,7 @@ JdSmartCtrlCmd　表示一个设备的指令操作，就是将这些设备的指
 | :----: | :----: | :----: | :----: | :----: | :----: | :----: |
 | 打开   | OPEN     |        |        |        |        |        |
 | 关闭   | CLOSE    |        |        |        |        |        |
-| 移动   | MOVE_TO_LEVEL| 移动比例,例如10, 表示移动10%      |  | |  | |
+| 移动   | MOVE_TO_LEVEL| 温度值     |  | |  | |
 | 自动模式|SET|FLOOR_HEATING_ORDER_MODE_AUTO|||||
 | 手动模式|SET|FLOOR_HEATING_ORDER_MODE_MANUAL|| | |  |
 | 休眠模式|SET|FLOOR_HEATING_ORDER_MODE_SLEEP |    |  | |  |
