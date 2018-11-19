@@ -391,8 +391,8 @@ boolean onAsrResult(String var1, VoiceExeBack var2)
 * true 拦截语义自己处理 
 * false 不拦截交给主机处理
 注意，有两种情况下背景音乐会处理语义
-1. 返回false
-2. 返回true时， 最终回调是onFail(TTS tts)
+1. onAsrResult返回false时
+2. onAsrResult返回true时， VoiceExeBack最终回调是onFail(TTS tts)
 
 void onVoiceState(int var1)
 参数
