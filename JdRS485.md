@@ -46,4 +46,4 @@ NTS: ssdp:alive
 USN: uuid:10000003816::urn:schemas-upnp-org:device:MediaRenderer:1
 NT: urn:schemas-upnp-org:device:MediaRenderer:1
 ```
-### 2. 同背景音乐主机IP地址的固定端口28998， 建立udp socket链接， 并进行通信。
+### 2. 同背景音乐主机在同一网段， 获得背景音乐主机IP地址， 同此IP地址固定端口28998， 建立udp socket链接并发送485指令
