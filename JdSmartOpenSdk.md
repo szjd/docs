@@ -25,7 +25,7 @@
 | V1.2.21 | 20171118 | <br>增加摄像头,投影仪,猫眼,晾衣架,扫地机器人| Luke |
 | V1.5.08 | 20180129 | <br>增加彩灯类型<br>扩充空气净化器和地暖类型指令 | Luke |
 | V1.5.11 | 20180815 | <br>增加一些设备类型<br>更新android buildtool版本<br>更多信息请看sdk中changelog | Luke |
-|        |          |                  |        |
+| V1.6.0  | 20181223 | <br>增加选择家庭接口<br>增加获取当前登录状态接口| MuYang     |
 
 ## 概述
 
@@ -110,10 +110,11 @@ public class JdSmartDevice {
     String roomId; //房间名， 强调说明，这个字段不是id，是房间名
     ...
 ```
-6. 一键导入功能的管理界面有个“重新导入”，它会首先调用CustomHost.java 中的refeshDevice()接口， 再调用getAlldevices()接口
+6. 一键导入功能的管理界面有个“重新导入”，它会首先调用CustomSmartHost.java 中的refeshDevice()接口， 再调用getAlldevices()接口
 7. notifyDevicesChange 回调,如果设备初始化时间比较长，可以等待设备初始化完成后，调用这个接口，上层将会再次调用getAlldevices()接口去获取新设备
 8. notifySceneChange 回调, 如果场景准备好，或场景名有变化，调用这个接口，上层将会再次调用getScenes()接口去获取最新的场景信息
-9. 一些设备类型有子类型，像空调，多功能控制盒，灯等，注意区分
+9. 设备状态发生改变调用sendUpdateDeviceMessage方法上报UI层刷新状态
+10. 一些设备类型有子类型，像空调，多功能控制盒，灯等，注意区分
 
 ## 主要类介绍
 
@@ -275,12 +276,19 @@ IJdSmartHost.java接口
 
 ``` java
  　　JdSmartHostInfo getHostInfo()      获取主机信息
- 　　JdSmartAccount getAccount()　　　　　获取登陆的帐户信息
- 　　void login(String name, String pwd, JdbaseCallback callback)       登陆
- 　　void logout(JdbaseCallback callback)                               退出登陆
  　　void searchAndBindHost(boolean isSearch, JdbaseCallback callback)  搜索并绑定主机
  　　void unbindHost(JdbaseCallback callback)                           解除绑定　
    
+```
+
+登录相关接口
+
+``` java
+    JdSmartAccount getAccount()　　　　　获取登录的帐户信息
+ 　 void login(String name, String pwd, JdbaseCallback callback)       登录
+ 　 void logout(JdbaseCallback callback)                               退出登录 
+    String getLoginState()      获取当前登录状态
+    setLoginState(int state, String msg)    设置当前登录状态
 ```
 
 场景相关
@@ -372,6 +380,8 @@ public interface IJdSmartHost {
     void getSensorRecord(String deviceid, int pageIndex, int pageSize, JdbaseCallback callback);
 
     void registerDeviceChange(JdbaseCallback callback);
+    
+    String getLoginState()
 }
 ```
 
@@ -398,6 +408,9 @@ mJdSmartHostInfo.setLoginPrompt(“Login”);//登陆提示信息，如果支持
 mJdSmartHostInfo.setEnableSceneEdit(true);//默认为true
 //如果设为false, 则只支持获取场景名，和执行场景，仅需实现getScenes和controlScene两个接口
 //如果设为true, 则支持场景所有功能，包括场景编辑，执行，场景绑定编辑,需要实现所有场景相关接口<br>
+mJdSmartHostInfo.setVersion(1);//version不设置，默认是0；
+//设为1表示支持在进入房间管理页前显示登录状态页（如果已登录成功，会跳过登录状态页，直接进入房间管理页）
+mJdSmartHostInfo.setLoginType(JdSmartLoginConstant.LOGIN_TYPE_ACCOUNT);//设置登录类型
 ~~mJdSmartHostInfo.setFilterVoiceMode(JdSmartConstant.FILTER_VOICE_MODE_NONE);//默认为true~~
 ~~//如果设为FILTER_VOICE_MODE_NONE, 则用户不能自己处理语音，setVoiceText()接口将接收不到任何信息~~
 ~~//如果设为FILTER_VOICE_MODE_CONTROL, 则用户仅能处理控制设备的语音，setVoiceText()接口将接收到控制设备的文本~~
@@ -445,6 +458,12 @@ mJdSmartHostInfo.setEnableSceneEdit(true);//默认为true
      */
     JdSmartAccount getAccount();
 ```
+
+
+### private void setLoginState(int state, String msg)
+
+设置当前登录状态
+
 
 ### void logout(JdbaseCallback callback)
 
@@ -498,6 +517,11 @@ mJdSmartHostInfo.setEnableSceneEdit(true);//默认为true
      */
     void unbindHost(JdbaseCallback callback);
 ```
+
+### public void selectFamily(String familyID, JdbaseCallback callback) 
+
+选择家庭，以显示该家庭下的所有设备 
+
 
 ### void getScenes(JdbaseCallback callback)
 
