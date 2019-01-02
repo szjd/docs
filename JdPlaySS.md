@@ -115,7 +115,7 @@ i0: [必选] cmd命令，支持的命令及参数设置如下。
 |151|MEDIA_REPORT_PlAY_STATE | S->C| 反馈播放状态  | i1: 播放状态 <br> 0:暂停<br>1:正在播放<br> 2:缓冲结束<br> | Client无需回复  |
 |152|MEDIA_REPORT_VOLUME | S->C| 反馈音量  | i1:音量值(0~100)  | Client无需回复  |
 |153|MEDIA_REPORT_PLAY_MODE | S->C| 反馈当前的播放模式 | i1: 播放模式 <br> 0:重复所有<br>1:单曲循环<br> 2:随机播放<br>  | Client无需回复  |
-|154|MEDIA_REPORT_AUDIO_SOURCE | S->C| 反馈当前的音源 | 无 | s0:当前音源<br>sdcard:本地<br> bt:蓝牙<br>online:在线<br>auxin:外部音频<br>Client无需回复  |
+|154|MEDIA_REPORT_AUDIO_SOURCE | S->C| 反馈当前的音源 | 无 | s0:当前音源<br>sdcard:本地<br> bt:蓝牙<br>online:在线<br>auxin:外部音频  |
 |200|DEVICE_POWER_ON | C->S| 开机 | 无  | 无参数  |
 |201|DEVICE_POWER_OFF | C->S| 关机 | 无  | 无参数  |
 |202|DEVICE_POWER_REBOOT | C->S| 重启 | 无  | 无参数  |
