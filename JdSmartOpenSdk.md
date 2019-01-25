@@ -115,6 +115,7 @@ public class JdSmartDevice {
 8. notifySceneChange 回调, 如果场景准备好，或场景名有变化，调用这个接口，上层将会再次调用getScenes()接口去获取最新的场景信息
 9. 设备状态发生改变调用sendUpdateDeviceMessage方法上报UI层刷新状态
 10. 一些设备类型有子类型，像空调，多功能控制盒，灯等，注意区分
+11.mJdSmartHostInfo.setSupportLogin(false) 或 mJdSmartHostInfo.setLoginType(JdSmartLoginConstant.LOGIN_TYPE_DIRECT)  会直接跳过登录页
 
 ## 主要类介绍
 
