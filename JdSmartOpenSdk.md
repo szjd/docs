@@ -8,7 +8,7 @@
       * [主要类介绍](#主要类介绍)
       * [参考示例说明](#参考示例说明)
       * [设备命令与设备状态说明](#设备命令与设备状态说明)
-
+      * [流程图](#流程图)
 
 
 ## 修订记录
@@ -115,6 +115,7 @@ public class JdSmartDevice {
 8. notifySceneChange 回调, 如果场景准备好，或场景名有变化，调用这个接口，上层将会再次调用getScenes()接口去获取最新的场景信息
 9. 设备状态发生改变调用sendUpdateDeviceMessage方法上报UI层刷新状态
 10. 一些设备类型有子类型，像空调，多功能控制盒，灯等，注意区分
+11.mJdSmartHostInfo.setSupportLogin(false) 或 mJdSmartHostInfo.setLoginType(JdSmartLoginConstant.LOGIN_TYPE_DIRECT)  会直接跳过登录页
 
 ## 主要类介绍
 
@@ -1251,6 +1252,10 @@ cmd.setOrder(JdSmartDeviceOrder.MUTE)
 |一氧化碳 |value1| 填写0表示关闭，不需要报警，填写1表示打开，需要报警
 
 
+## 流程图
+
+![流程图1](./pic/dockTree1.png)<br>
+![流程图2](./pic/dockTree2.png)<br>
 
 
 
